@@ -1,0 +1,5 @@
+.shop-section {
+  display: grid;
+  grid-template-columns: 1fr 8fr;
+  padding: 1.2rem 1.2rem;
+}
