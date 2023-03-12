@@ -1,0 +1,28 @@
+.filter {
+  font-size: 1.4rem;
+  margin: 2.4rem 0;
+}
+
+.category {
+  list-style: none;
+}
+
+.category a {
+  text-decoration: none;
+  color: #333;
+  transition: all 0.3s;
+}
+
+.category a:hover {
+  color: #5b5b5b;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  padding-left: 1.2rem;
+}
+
+.open .dropdown-content {
+  display: block;
+}

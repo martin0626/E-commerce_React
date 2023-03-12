@@ -1,0 +1,49 @@
+.product-element {
+  position: relative;
+  transition: all 0.3s;
+  width: 22rem;
+  height: 22rem;
+}
+
+.image {
+  transition: all 0.3s;
+}
+
+.image img {
+  width: 100%;
+  height: 18rem;
+}
+
+.description {
+  font-size: 1.2rem;
+  text-align: center;
+  letter-spacing: 1px;
+  transition: all 0.3s;
+}
+
+.action {
+  display: flex;
+  gap: 2.4rem;
+  color: #212529;
+  font-size: 2.4rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-200%);
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+.product-element:hover .image {
+  opacity: 20%;
+}
+
+.product-element:hover .action {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.action span:hover {
+  transition: all 0.3s;
+  color: #495057;
+}
