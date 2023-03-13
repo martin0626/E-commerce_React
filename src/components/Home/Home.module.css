@@ -1,5 +1,12 @@
 .home {
   padding: 3.6rem 12rem;
-  background-color: antiquewhite;
   border-bottom-right-radius: 40rem 20rem;
+  position: relative;
+  height: 16rem;
+  box-shadow: 0px 0px 30px 0px black;
+}
+
+.home-header {
+  left: 5.2rem;
+  position: absolute;
 }

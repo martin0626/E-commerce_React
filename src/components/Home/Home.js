@@ -6,7 +6,9 @@ const Home = () => {
   return (
     <Fragment>
       <section className={classes.home}>
-        <h1 className="heading-primary">Welcome to My Web Shop</h1>
+        <div className={classes["home-header"]}>
+          <h1 className="heading-primary">Welcome to My Web Shop</h1>
+        </div>
       </section>
       <Brands></Brands>
     </Fragment>

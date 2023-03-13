@@ -1,7 +1,10 @@
 import classes from "./Navigation.module.css";
 import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Navigation = () => {
+  const cartQuantity = useSelector((state) => state.cart.quantity);
+
   return (
     <nav className={classes.navigation}>
       <NavLink
@@ -42,7 +45,7 @@ const Navigation = () => {
           </NavLink>
         </div>
       </div>
-      <div>
+      <div className={classes.cart}>
         <NavLink
           to="/cart"
           className={({ isActive }) =>
@@ -51,6 +54,7 @@ const Navigation = () => {
               : "fa fa-shopping-cart"
           }
         ></NavLink>
+        <div className={classes["cart-quantity"]}>{cartQuantity}</div>
       </div>
     </nav>
   );
