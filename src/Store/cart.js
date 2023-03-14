@@ -12,13 +12,27 @@ const CartSlice = createSlice({
       );
       if (!inCart) {
         state.cartItems.push(action.payload);
-        state.quantity += 1;
       } else {
         inCart.quantity += 1;
       }
+      state.quantity += 1;
     },
     RemoveItemFromCart(state, action) {
-      state.cartItems = state.cartItems.filter((p) => p.id !== action.payload);
+      let cartItem = state.cartItems.find((item) => item.id === action.payload);
+
+      if (cartItem.quantity === 1) {
+        state.cartItems = state.cartItems.filter(
+          (p) => p.id !== action.payload
+        );
+      } else {
+        state.cartItems = state.cartItems.map((el) => {
+          if (el.id === action.payload) {
+            el.quantity -= 1;
+          }
+          return el;
+        });
+      }
+      state.quantity -= 1;
     },
   },
 });
