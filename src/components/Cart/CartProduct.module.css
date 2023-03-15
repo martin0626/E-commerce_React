@@ -1,0 +1,38 @@
+.product {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.2rem;
+  font-size: 1.2rem;
+  color: #333;
+  border-top: #33333321 1px solid;
+  padding-top: 0.5rem;
+}
+
+.image img {
+  width: 6rem;
+  height: 8rem;
+}
+
+.quantity {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 1.4rem;
+}
+
+.qnt-number {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.price {
+  font-weight: 700;
+  font-size: 1.4rem;
+}
+
+.action:hover {
+  transition: all 0.3s;
+  cursor: pointer;
+  color: #6b6b6b;
+}

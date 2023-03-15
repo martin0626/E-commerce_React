@@ -46,6 +46,10 @@
   transition: all 0.3s;
 }
 
+.action a {
+  color: #333;
+}
+
 .product-element:hover .image {
   opacity: 20%;
 }
