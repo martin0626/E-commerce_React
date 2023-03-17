@@ -8,6 +8,8 @@ let initialStateProducts = [
     image:
       "https://th.bing.com/th/id/R.e40205ede691dd2d7effa1a8b6ecda07?rik=9xangv3qN1M6Rw&pid=ImgRaw&r=0",
     sale: 0,
+    gender: "male",
+    sizes: ["S", "M"],
   },
   {
     id: "01",
@@ -16,6 +18,8 @@ let initialStateProducts = [
     image:
       "https://th.bing.com/th/id/R.e40205ede691dd2d7effa1a8b6ecda07?rik=9xangv3qN1M6Rw&pid=ImgRaw&r=0",
     sale: 0,
+    gender: "male",
+    sizes: ["S", "M", "L"],
   },
   {
     id: "01",
@@ -24,6 +28,8 @@ let initialStateProducts = [
     image:
       "https://th.bing.com/th/id/R.e40205ede691dd2d7effa1a8b6ecda07?rik=9xangv3qN1M6Rw&pid=ImgRaw&r=0",
     sale: 0,
+    gender: "male",
+    sizes: ["S", "M", "L"],
   },
   {
     id: "01",
@@ -32,6 +38,8 @@ let initialStateProducts = [
     image:
       "https://th.bing.com/th/id/R.e40205ede691dd2d7effa1a8b6ecda07?rik=9xangv3qN1M6Rw&pid=ImgRaw&r=0",
     sale: 0,
+    gender: "female",
+    sizes: ["S", "M"],
   },
   {
     id: "01",
@@ -40,6 +48,8 @@ let initialStateProducts = [
     image:
       "https://th.bing.com/th/id/R.e40205ede691dd2d7effa1a8b6ecda07?rik=9xangv3qN1M6Rw&pid=ImgRaw&r=0",
     sale: 0,
+    gender: "female",
+    sizes: ["S", "L"],
   },
   {
     id: "02",
@@ -48,6 +58,8 @@ let initialStateProducts = [
     image:
       "https://th.bing.com/th/id/R.e40205ede691dd2d7effa1a8b6ecda07?rik=9xangv3qN1M6Rw&pid=ImgRaw&r=0",
     sale: 0,
+    gender: "female",
+    sizes: ["M", "L"],
   },
   {
     id: "03",
@@ -56,6 +68,8 @@ let initialStateProducts = [
     image:
       "https://th.bing.com/th/id/R.e40205ede691dd2d7effa1a8b6ecda07?rik=9xangv3qN1M6Rw&pid=ImgRaw&r=0",
     sale: 0,
+    gender: "male",
+    sizes: ["L"],
   },
   {
     id: "04",
@@ -64,6 +78,8 @@ let initialStateProducts = [
     image:
       "https://th.bing.com/th/id/R.e40205ede691dd2d7effa1a8b6ecda07?rik=9xangv3qN1M6Rw&pid=ImgRaw&r=0",
     sale: 12,
+    gender: "male",
+    sizes: ["M", "L"],
   },
 ];
 
@@ -72,6 +88,8 @@ const productSlice = createSlice({
   name: "products",
   initialState: { products: initialStateProducts },
   reducers: {},
+  gender: "male",
+  sizes: ["M", "L"],
 });
 
 export default productSlice;

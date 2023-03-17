@@ -21,7 +21,7 @@ const SingleProduct = (props) => {
         <a>
           <span onClick={AddToCartHandler} className="fa fa-cart-plus"></span>
         </a>
-        <Link to={product.id} end>
+        <Link to={`details/${product.id}`} end>
           <span className="fa fa-eye"></span>
         </Link>
       </div>

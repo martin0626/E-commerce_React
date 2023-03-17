@@ -7,12 +7,10 @@ const Filter = () => {
 
   const openMenHandler = () => {
     setIsOpenMen(!isOpenMen);
-    console.log("asd");
   };
 
   const openWomenHandler = () => {
     setIsOpenWomen(!isOpenWomen);
-    console.log("asd");
   };
 
   return (
@@ -26,18 +24,18 @@ const Filter = () => {
         >
           <li className={classes.category}>
             <a>
-              Men <span>&#8711;</span>
+              Size <span>&#8711;</span>
             </a>
           </li>
           <ul className={classes["dropdown-content"]}>
             <li className={classes.category}>
-              <a href="#">Women</a>
+              <a href="#">S</a>
             </li>
             <li className={classes.category}>
-              <a href="#">Women</a>
+              <a href="#">M</a>
             </li>
             <li className={classes.category}>
-              <a href="#">Women</a>
+              <a href="#">L</a>
             </li>
           </ul>
         </div>

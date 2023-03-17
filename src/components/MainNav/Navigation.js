@@ -29,19 +29,16 @@ const Navigation = () => {
         </NavLink>
         <div className={classes["drp-content"]}>
           <NavLink
+            to="shop/male"
             className={({ isActive }) => (isActive ? classes.active : "")}
           >
-            Link 1
+            Men
           </NavLink>
           <NavLink
+            to="shop/female"
             className={({ isActive }) => (isActive ? classes.active : "")}
           >
-            Link 2
-          </NavLink>
-          <NavLink
-            className={({ isActive }) => (isActive ? classes.active : "")}
-          >
-            Link 3
+            Women
           </NavLink>
         </div>
       </div>

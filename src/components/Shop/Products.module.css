@@ -15,3 +15,10 @@
     opacity: 1;
   }
 }
+
+.empty {
+  align-self: center;
+  font-size: 5.2rem;
+  position: absolute;
+  right: 25%;
+}
