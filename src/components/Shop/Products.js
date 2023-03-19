@@ -4,10 +4,15 @@ import SingleProduct from "./SingleProduct";
 
 const Products = (props) => {
   const category = props.category;
+  const size = props.filter;
   let products = useSelector((state) => state.products.products);
 
   if (category) {
     products = products.filter((pr) => pr.gender === category);
+  }
+
+  if (size) {
+    products = products.filter((pr) => pr.sizes.includes(size));
   }
 
   return (

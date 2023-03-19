@@ -39,7 +39,7 @@ let initialStateProducts = [
       "https://th.bing.com/th/id/R.e40205ede691dd2d7effa1a8b6ecda07?rik=9xangv3qN1M6Rw&pid=ImgRaw&r=0",
     sale: 0,
     gender: "female",
-    sizes: ["S", "M"],
+    sizes: ["M"],
   },
   {
     id: "01",
@@ -49,7 +49,7 @@ let initialStateProducts = [
       "https://th.bing.com/th/id/R.e40205ede691dd2d7effa1a8b6ecda07?rik=9xangv3qN1M6Rw&pid=ImgRaw&r=0",
     sale: 0,
     gender: "female",
-    sizes: ["S", "L"],
+    sizes: ["L"],
   },
   {
     id: "02",

@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import classes from "./Filter.module.css";
 
 const Filter = () => {
   const [isOpenWomen, setIsOpenWomen] = useState(false);
   const [isOpenMen, setIsOpenMen] = useState(false);
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const openMenHandler = () => {
     setIsOpenMen(!isOpenMen);
@@ -11,6 +13,11 @@ const Filter = () => {
 
   const openWomenHandler = () => {
     setIsOpenWomen(!isOpenWomen);
+  };
+
+  const filterHandler = (e) => {
+    let currFilter = e.target.textContent;
+    setSearchParams({ size: currFilter });
   };
 
   return (
@@ -28,14 +35,14 @@ const Filter = () => {
             </a>
           </li>
           <ul className={classes["dropdown-content"]}>
-            <li className={classes.category}>
-              <a href="#">S</a>
+            <li onClick={filterHandler} className={classes.category}>
+              <a>S</a>
             </li>
-            <li className={classes.category}>
-              <a href="#">M</a>
+            <li onClick={filterHandler} className={classes.category}>
+              <a>M</a>
             </li>
-            <li className={classes.category}>
-              <a href="#">L</a>
+            <li onClick={filterHandler} className={classes.category}>
+              <a>L</a>
             </li>
           </ul>
         </div>
