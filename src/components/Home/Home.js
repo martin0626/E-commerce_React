@@ -3,6 +3,10 @@ import Brands from "./BrandsSection";
 import classes from "./Home.module.css";
 
 const Home = () => {
+  const FetchData = async () => {
+    let request = await fetch("http://localhost:8000/products/2/");
+    console.log(await request.json());
+  };
   return (
     <Fragment>
       <section className={classes.home}>
@@ -11,6 +15,7 @@ const Home = () => {
         </div>
       </section>
       <Brands></Brands>
+      <button onClick={FetchData}>Fetch Products</button>
     </Fragment>
   );
 };

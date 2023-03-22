@@ -1,7 +1,21 @@
+import { useEffect, useState } from "react";
+import { useParams } from "react-router";
 import classes from "./Details.module.css";
 
-const DetailsElement = (props) => {
-  const product = props.product;
+const DetailsElement = () => {
+  const { productId } = useParams();
+  const [product, setProduct] = useState({});
+
+  useEffect(() => {
+    const fetchProduct = async () => {
+      let request = await fetch(`http://localhost:8000/products/${productId}/`);
+      const response = await request.json();
+      setProduct(response);
+    };
+
+    fetchProduct();
+  }, []);
+
   return (
     <section className={classes.details}>
       <div className={classes["images-content"]}>
@@ -18,7 +32,7 @@ const DetailsElement = (props) => {
         </div>
       </div>
       <div className={classes["form-description"]}>
-        <h1 className="heading-secondary">{product.description}</h1>
+        <h1 className="heading-secondary">{product.title}</h1>
         <p className={classes.price}>{product.price} $</p>
         <p className={classes.text}>
           You can use grid properties on the image and text, as well. Just make

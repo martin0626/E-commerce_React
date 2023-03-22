@@ -27,7 +27,7 @@ const SingleProduct = (props) => {
       </div>
 
       <div className={classes.description}>
-        <p>{product.description}</p>
+        <p>{product.title}</p>
       </div>
     </div>
   );
