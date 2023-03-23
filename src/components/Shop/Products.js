@@ -4,16 +4,18 @@ import SingleProduct from "./SingleProduct";
 
 const Products = (props) => {
   const category = props.category;
-  // const size = props.filter;
+  console.log(category);
+  const filter = props.filter;
   let products = useSelector((state) => state.products.products);
 
   if (category) {
     products = products.filter((pr) => pr.gender === category);
   }
 
-  // if (size) {
-  //   products = products.filter((pr) => pr.sizes.includes(size));
-  // }
+  if (filter) {
+    products = products.filter((pr) => pr.category.title === filter);
+  }
+  console.log(filter);
 
   return (
     <div className={classes.products}>

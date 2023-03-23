@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import classes from "./Filter.module.css";
 
@@ -6,6 +6,17 @@ const Filter = () => {
   const [isOpenWomen, setIsOpenWomen] = useState(false);
   const [isOpenMen, setIsOpenMen] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      let request = await fetch(`http://localhost:8000/products/categories/`);
+      const response = await request.json();
+      setCategories(response);
+    };
+
+    fetchCategories();
+  }, []);
 
   const openMenHandler = () => {
     setIsOpenMen(!isOpenMen);
@@ -17,7 +28,11 @@ const Filter = () => {
 
   const filterHandler = (e) => {
     let currFilter = e.target.textContent;
-    setSearchParams({ size: currFilter });
+    if (currFilter != "All") {
+      setSearchParams({ filter: currFilter });
+      return;
+    }
+    setSearchParams();
   };
 
   return (
@@ -31,19 +46,19 @@ const Filter = () => {
         >
           <li className={classes.category}>
             <a>
-              Size <span>&#8711;</span>
+              Filters <span>&#8711;</span>
             </a>
           </li>
           <ul className={classes["dropdown-content"]}>
             <li onClick={filterHandler} className={classes.category}>
-              <a>S</a>
+              <a>All</a>
             </li>
-            <li onClick={filterHandler} className={classes.category}>
-              <a>M</a>
-            </li>
-            <li onClick={filterHandler} className={classes.category}>
-              <a>L</a>
-            </li>
+            {categories &&
+              categories.map((c) => (
+                <li onClick={filterHandler} className={classes.category}>
+                  <a>{c.title}</a>
+                </li>
+              ))}
           </ul>
         </div>
 

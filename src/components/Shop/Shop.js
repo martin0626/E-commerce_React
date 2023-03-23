@@ -7,12 +7,12 @@ import classes from "./Shop.module.css";
 const Shop = () => {
   let { category } = useParams();
   let [queryParams] = useSearchParams();
-  let sizeFilter = queryParams.get("size");
+  let filter = queryParams.get("filter");
 
   return (
     <section className={classes["shop-section"]}>
       <Filter />
-      <Products category={category} filter={sizeFilter} />
+      <Products category={category} filter={filter} />
     </section>
   );
 };

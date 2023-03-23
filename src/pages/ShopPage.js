@@ -5,9 +5,11 @@ import { getAllProducts } from "../Store/products";
 
 const ShopElement = () => {
   const dispatch = useDispatch();
+  // Fetch All Products
   useEffect(() => {
     dispatch(getAllProducts());
   }, []);
+
   return <Shop />;
 };
 
