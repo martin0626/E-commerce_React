@@ -3,13 +3,14 @@ import classes from "./Products.module.css";
 import SingleProduct from "./SingleProduct";
 
 const Products = (props) => {
-  const category = props.category;
-  console.log(category);
+  const gender = props.gender;
   const filter = props.filter;
   let products = useSelector((state) => state.products.products);
 
-  if (category) {
-    products = products.filter((pr) => pr.gender === category);
+  if (gender) {
+    products = products.filter(
+      (pr) => pr.gender.toLowerCase() === gender.toLowerCase()
+    );
   }
 
   if (filter) {

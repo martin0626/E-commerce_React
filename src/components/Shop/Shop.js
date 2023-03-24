@@ -5,14 +5,14 @@ import Products from "./Products";
 import classes from "./Shop.module.css";
 
 const Shop = () => {
-  let { category } = useParams();
+  let { gender } = useParams();
   let [queryParams] = useSearchParams();
   let filter = queryParams.get("filter");
 
   return (
     <section className={classes["shop-section"]}>
       <Filter />
-      <Products category={category} filter={filter} />
+      <Products gender={gender} filter={filter} />
     </section>
   );
 };

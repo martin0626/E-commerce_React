@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import Brands from "./BrandsSection";
 import classes from "./Home.module.css";
+import ImageSlides from "./ImageSlides";
 
 const Home = () => {
   const FetchData = async () => {
@@ -14,8 +15,8 @@ const Home = () => {
           <h1 className="heading-primary">Welcome to My Web Shop</h1>
         </div>
       </section>
+      <ImageSlides></ImageSlides>
       <Brands></Brands>
-      <button onClick={FetchData}>Fetch Products</button>
     </Fragment>
   );
 };
