@@ -1,7 +1,7 @@
 /* https://www.w3schools.com/howto/howto_js_slideshow.asp */
 
 .slide-container {
-  max-width: 50rem;
+  max-width: 70rem;
   height: 50rem;
   position: relative;
   align-items: center;
@@ -21,7 +21,8 @@
 
 .active .slide-image {
   display: block;
-  max-width: 100%;
+  width: 70rem;
+  height: 40rem;
 }
 
 .fade {
@@ -46,6 +47,7 @@
   cursor: pointer;
   color: #bbb;
   padding: 1.2rem;
+  transition: all 0.6s;
 }
 
 .prev {
@@ -68,7 +70,10 @@
 .dot {
   width: 0.8rem;
   height: 0.8rem;
-
-  background-color: #333;
+  background-color: #989898;
   border-radius: 50%;
+}
+
+.active-dot {
+  background-color: #333;
 }
