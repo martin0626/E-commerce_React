@@ -1,4 +1,5 @@
 import { Fragment } from "react";
+import { Link } from "react-router-dom";
 import Brands from "./BrandsSection";
 import classes from "./Home.module.css";
 import ImageSlides from "./ImageSlides";
@@ -9,15 +10,25 @@ const Home = () => {
     console.log(await request.json());
   };
   return (
-    <Fragment>
+    <div className={classes.fade}>
       <section className={classes.home}>
         <div className={classes["home-header"]}>
           <h1 className="heading-primary">Welcome to My Web Shop</h1>
+          <p className={classes["heading-text"]}>
+            The magic here is in the transform property, which is hiding and
+            showing our skip link depending on whether it is focused or not.
+            Let’s make it look a little nicer with a quick transition on the
+            transform property.
+          </p>
+          <Link to="/shop" className={classes["header-button"]}>
+            Shop Now
+          </Link>
         </div>
       </section>
-      <ImageSlides></ImageSlides>
       <Brands></Brands>
-    </Fragment>
+
+      <ImageSlides></ImageSlides>
+    </div>
   );
 };
 

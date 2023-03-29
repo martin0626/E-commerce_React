@@ -1,3 +1,8 @@
+.product {
+  display: flex;
+  flex-direction: column;
+}
+
 .product-element {
   position: relative;
   transition: all 0.3s;
@@ -30,7 +35,12 @@
   font-size: 1.2rem;
   text-align: center;
   letter-spacing: 1px;
+
   transition: all 0.3s;
+}
+
+.description p {
+  margin-block: 0.2rem;
 }
 
 .action {
@@ -41,7 +51,7 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translateX(-50%) translateY(-200%);
+  transform: translateX(-50%) translateY(-100%);
   opacity: 0;
   transition: all 0.3s;
 }
@@ -62,4 +72,9 @@
 .action span:hover {
   transition: all 0.3s;
   color: #495057;
+}
+
+.price {
+  font-size: 1.2rem;
+  font-weight: bold;
 }

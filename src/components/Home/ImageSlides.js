@@ -18,58 +18,55 @@ let images = [
 
 const ImageSlides = () => {
   let [currIndex, setCurrIndex] = useState(0);
-  // let [activeImage, setActiveImage] = useState(images[0].id);
-  console.log(currIndex, "Outside");
 
   const changeIndexHandler = (step) => {
     let index = currIndex + step;
 
     if (index === images.length) {
       setCurrIndex(0);
-      // setActiveImage(images[currIndex].id);
       return;
     }
     if (index < 0) {
       setCurrIndex(images.length - 1);
-      // setActiveImage(images[currIndex].id);
       return;
     }
 
     setCurrIndex(index);
-    // setActiveImage(images[currIndex].id);
   };
 
   return (
-    <div className={classes["slide-container"]}>
-      <div className={`${classes.fade} ${classes.slide} ${classes.active}`}>
-        <img className={classes["slide-image"]} src={images[currIndex].img} />
+    <section className={classes["slide-section"]}>
+      <div className={classes["slide-container"]}>
+        <div className={`${classes.fade} ${classes.slide}`}>
+          <img className={classes["slide-image"]} src={images[currIndex].img} />
+        </div>
+        <a
+          className={classes.next}
+          onClick={() => {
+            changeIndexHandler(-1);
+          }}
+        >
+          &#10094;
+        </a>
+        <a
+          className={classes.prev}
+          onClick={() => {
+            changeIndexHandler(1);
+          }}
+        >
+          &#10095;
+        </a>
+        <div className={classes.dots}>
+          {images.map((el) => (
+            <span
+              className={`${
+                images[currIndex].id === el.id && classes["active-dot"]
+              } ${classes.dot}`}
+            ></span>
+          ))}
+        </div>
       </div>
-      <a
-        className={classes.next}
-        onClick={() => {
-          changeIndexHandler(-1);
-        }}
-      >
-        &#10094;
-      </a>
-      <a
-        className={classes.prev}
-        onClick={() => {
-          changeIndexHandler(1);
-        }}
-      >
-        &#10095;
-      </a>
-      <div className={classes.dots}>
-        {images.map((el) => (
-          <span
-            className={`${
-              images[currIndex].id === el.id && classes["active-dot"]
-            } ${classes.dot}`}
-          ></span>
-        ))}
-      </div>
-    </div>
+    </section>
   );
 };
 

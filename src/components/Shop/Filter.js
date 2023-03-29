@@ -70,18 +70,21 @@ const Filter = () => {
         >
           <li className={classes.category}>
             <a>
-              Women <span>&#8711;</span>
+              Sizes <span>&#8711;</span>
             </a>
           </li>
           <ul className={classes["dropdown-content"]}>
             <li className={classes.category}>
-              <a href="#">Women</a>
+              <a href="#">S</a>
             </li>
             <li className={classes.category}>
-              <a href="#">Women</a>
+              <a href="#">M</a>
             </li>
             <li className={classes.category}>
-              <a href="#">Women</a>
+              <a href="#">L</a>
+            </li>
+            <li className={classes.category}>
+              <a href="#">XL</a>
             </li>
           </ul>
         </div>

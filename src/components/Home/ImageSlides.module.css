@@ -1,14 +1,16 @@
 /* https://www.w3schools.com/howto/howto_js_slideshow.asp */
 
+.slide-section {
+  /* margin: 4.6rem 0; */
+  padding-bottom: 6rem;
+}
+
 .slide-container {
   max-width: 70rem;
   height: 50rem;
   position: relative;
   align-items: center;
-
   margin: 0 auto;
-  margin-top: 12rem;
-  margin-bottom: 12rem;
 }
 
 .slide {
@@ -17,12 +19,10 @@
 
 .slide-image {
   display: none;
-}
-
-.active .slide-image {
   display: block;
-  width: 70rem;
+  width: 100%;
   height: 40rem;
+  border-radius: 8px;
 }
 
 .fade {
