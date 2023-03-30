@@ -34,6 +34,10 @@ const ImageSlides = () => {
     setCurrIndex(index);
   };
 
+  setTimeout(() => {
+    changeIndexHandler(1);
+  }, 7000);
+
   return (
     <section className={classes["slide-section"]}>
       <div className={classes["slide-container"]}>

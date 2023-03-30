@@ -11,18 +11,21 @@ const CartSlice = createSlice({
       state.quantity = action.payload.quantity;
       state.total = action.payload.total;
     },
+
     AddItemToCart(state, action) {
       let inCart = state.cartItems.find(
-        (product) => product.id === action.payload.id
+        (product) => product.id === action.payload.product.id
       );
       if (!inCart) {
-        state.cartItems.push(action.payload);
+        state.cartItems.push(action.payload.product);
       } else {
-        inCart.quantity += 1;
+        // TODO Update With CurrQuantity
+        inCart.quantity += action.payload.currQuantity;
       }
-      state.quantity += 1;
-      state.total += action.payload.price;
+      state.quantity += action.payload.currQuantity;
+      state.total += action.payload.product.price * action.payload.currQuantity;
     },
+
     RemoveItemFromCart(state, action) {
       let cartItem = state.cartItems.find(
         (item) => item.id === action.payload.id

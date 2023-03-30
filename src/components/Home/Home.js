@@ -1,5 +1,6 @@
 import { Fragment } from "react";
 import { Link } from "react-router-dom";
+import LoadingElement from "../Ui/Loading";
 import Brands from "./BrandsSection";
 import classes from "./Home.module.css";
 import ImageSlides from "./ImageSlides";
@@ -25,8 +26,8 @@ const Home = () => {
           </Link>
         </div>
       </section>
-      <Brands></Brands>
 
+      <Brands></Brands>
       <ImageSlides></ImageSlides>
     </div>
   );

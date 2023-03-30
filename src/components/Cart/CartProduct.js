@@ -5,13 +5,14 @@ import classes from "./CartProduct.module.css";
 const CartProduct = (props) => {
   const product = props.product;
   const dispatch = useDispatch();
+  console.log(product);
 
   const deleteHandler = () => {
     dispatch(cartAction.RemoveItemFromCart(product));
   };
 
   const addHandler = () => {
-    dispatch(cartAction.AddItemToCart(product));
+    dispatch(cartAction.AddItemToCart({ product, currQuantity: 1 }));
   };
   return (
     <div className={classes.product}>
@@ -19,7 +20,7 @@ const CartProduct = (props) => {
         <img src={product.image} />
       </div>
       <div className={classes.description}>
-        <p>{product.description}</p>
+        <p>{product.title}</p>
       </div>
       <div className={classes.quantity}>
         <i

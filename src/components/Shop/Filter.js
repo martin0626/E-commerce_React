@@ -50,12 +50,14 @@ const Filter = () => {
             </a>
           </li>
           <ul className={classes["dropdown-content"]}>
-            <li onClick={filterHandler} className={classes.category}>
+            <div className={classes.detail} />
+
+            <li onClick={filterHandler}>
               <a>All</a>
             </li>
             {categories &&
               categories.map((c) => (
-                <li onClick={filterHandler} className={classes.category}>
+                <li onClick={filterHandler}>
                   <a>{c.title}</a>
                 </li>
               ))}
@@ -74,16 +76,17 @@ const Filter = () => {
             </a>
           </li>
           <ul className={classes["dropdown-content"]}>
-            <li className={classes.category}>
+            <div className={classes.detail} />
+            <li>
               <a href="#">S</a>
             </li>
-            <li className={classes.category}>
+            <li>
               <a href="#">M</a>
             </li>
-            <li className={classes.category}>
+            <li>
               <a href="#">L</a>
             </li>
-            <li className={classes.category}>
+            <li>
               <a href="#">XL</a>
             </li>
           </ul>

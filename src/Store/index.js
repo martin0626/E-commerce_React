@@ -4,6 +4,7 @@ import productSlice from "./products";
 import storage from "redux-persist/lib/storage";
 import persistReducer from "redux-persist/es/persistReducer";
 import thunk from "redux-thunk";
+import uiSlice from "./ui-slice";
 
 const persistConfig = {
   key: "root",
@@ -18,6 +19,7 @@ const store = configureStore({
   reducer: {
     products: productSlice.reducer,
     cart: persistedCartReducer,
+    ui: uiSlice.reducer,
   },
   middleware: [thunk],
 });

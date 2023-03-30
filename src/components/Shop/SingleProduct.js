@@ -9,15 +9,12 @@ const SingleProduct = (props) => {
   const dispatch = useDispatch();
 
   const AddToCartHandler = () => {
-    const getSessionData = () => {
-      let data = window.sessionStorage.getItem("cartItems", {});
-      return data ? JSON.parse(data) : [];
-    };
-
-    dispatch(cartAction.AddItemToCart({ ...product, quantity: 1 }));
-    // let sessionData = getSessionData();
-    // sessionData.push(product);
-    // window.sessionStorage.setItem("cartItems", JSON.stringify(sessionData));
+    dispatch(
+      cartAction.AddItemToCart({
+        product: { ...product, quantity: 1 },
+        currQuantity: 1,
+      })
+    );
   };
 
   return (

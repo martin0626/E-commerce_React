@@ -1,10 +1,33 @@
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import { useParams } from "react-router";
+import { cartAction } from "../../Store/cart";
 import classes from "./Details.module.css";
 
 const DetailsElement = () => {
   const { productId } = useParams();
   const [product, setProduct] = useState({});
+  const [productQuantity, setProductQuantity] = useState(0);
+  const dispatch = useDispatch();
+
+  const quantityHandler = (step) => {
+    let qnt = productQuantity + step;
+    if (qnt < 0) {
+      qnt = 0;
+    }
+    setProductQuantity(qnt);
+  };
+
+  const addToCartHandler = () => {
+    if (productQuantity !== 0) {
+      dispatch(
+        cartAction.AddItemToCart({
+          product: { ...product, quantity: productQuantity },
+          currQuantity: productQuantity,
+        })
+      );
+    }
+  };
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -46,6 +69,24 @@ const DetailsElement = () => {
           <p className={classes["out-of-stock"]}>XL</p>
           <p>XXL</p>
           <p className={classes["out-of-stock"]}>XXXL</p>
+        </div>
+        <div className={classes["add-to-cart-section"]}>
+          <div className={classes.quantity}>
+            <div className={classes["quantity-controler"]}>
+              <p onClick={() => quantityHandler(1)} className={classes.plus}>
+                <i class="fa fa-plus"></i>
+              </p>
+              <p onClick={() => quantityHandler(-1)} className={classes.minus}>
+                <i class="fa fa-minus"></i>
+              </p>
+            </div>
+            <p className={classes.quantity}>{productQuantity}</p>
+          </div>
+          <div className={classes.add}>
+            <a onClick={addToCartHandler} className={classes["add-btn"]}>
+              Add To Cart
+            </a>
+          </div>
         </div>
       </div>
     </section>
