@@ -30,7 +30,12 @@ const Cart = () => {
               ))}
             </div>
           </div>
-          <div className={classes.total}>Total: {total}$</div>
+          <div className={classes["checkout-section"]}>
+            <div className={classes.total}>Total: {total}$</div>
+            <Link className={classes.payment} to="/checkout">
+              Pay
+            </Link>
+          </div>
         </div>
       </div>
     </Fragment>

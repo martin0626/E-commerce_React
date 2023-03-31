@@ -1,0 +1,33 @@
+.checkout-section {
+}
+
+.title {
+  margin-top: 2rem;
+  padding: 1.2rem;
+  text-align: center;
+  font-size: 5.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 6px;
+}
+
+.info {
+  margin: 6.4rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  font-size: 1.2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  border-bottom: 1px solid #333;
+}
+
+.imp {
+  font-weight: bold;
+}
+
+.txt {
+  letter-spacing: 4px;
+}
