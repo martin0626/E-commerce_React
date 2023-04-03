@@ -1,3 +1,4 @@
+import { Form } from "react-router-dom";
 import classes from "./CheckoutForm.module.css";
 
 const CheckoutForm = () => {
@@ -5,7 +6,7 @@ const CheckoutForm = () => {
     <div className={classes["form-section"]}>
       <h1>Please fill in your delivery details</h1>
       <div className={classes.form}>
-        <form>
+        <Form method="post" action="/checkout">
           <label for="fname">First name:</label>
           <input id="fname" name="fname"></input>
           <label for="lname">Last name:</label>
@@ -16,7 +17,8 @@ const CheckoutForm = () => {
           <input id="email" name="email"></input>
           <label for="city">City:</label>
           <input id="city" name="city"></input>
-        </form>
+          <button type="submit">Order</button>
+        </Form>
       </div>
     </div>
   );
