@@ -5,7 +5,6 @@ import classes from "./CartProduct.module.css";
 const CartProduct = (props) => {
   const product = props.product;
   const dispatch = useDispatch();
-  console.log(product);
 
   const deleteHandler = () => {
     dispatch(cartAction.RemoveItemFromCart(product));
@@ -25,13 +24,13 @@ const CartProduct = (props) => {
       <div className={classes.quantity}>
         <i
           onClick={deleteHandler}
-          class={`fa fa-minus-square ${classes.action}`}
+          className={`fa fa-minus-square ${classes.action}`}
           aria-hidden="true"
         ></i>
         <p className={classes["qnt-number"]}>{product.quantity}</p>
         <i
           onClick={addHandler}
-          class={`fa fa-plus-square ${classes.action}`}
+          className={`fa fa-plus-square ${classes.action}`}
           aria-hidden="true"
         ></i>
       </div>

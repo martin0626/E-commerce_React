@@ -8,8 +8,7 @@ import { Fragment } from "react";
 const Cart = () => {
   const cartItems = useSelector((state) => state.cart.cartItems);
   const total = useSelector((state) => state.cart.total);
-  console.log(cartItems);
-  console.log(cartItems);
+
   return (
     <Fragment>
       <Shop />
@@ -17,11 +16,11 @@ const Cart = () => {
         <div className={classes.cart}>
           <div className={classes.content}>
             <div className={classes["cart-icon"]}>
-              <i class="fa fa-shopping-cart"></i>
+              <i className="fa fa-shopping-cart"></i>
             </div>
             <div className={classes.detail}></div>
             <Link to="/shop" className={classes.close}>
-              <i class="fa fa-window-close-o" aria-hidden="true"></i>
+              <i className="fa fa-window-close-o" aria-hidden="true"></i>
             </Link>
             <h1 className={classes["prm-header"]}>Shopping Bag</h1>
             <div className={classes["cart-products"]}>

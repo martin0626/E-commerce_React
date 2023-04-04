@@ -15,8 +15,12 @@ const CheckoutForm = () => {
           <input id="phone" name="phone"></input>
           <label for="email">Email:</label>
           <input id="email" name="email"></input>
-          <label for="city">City:</label>
-          <input id="city" name="city"></input>
+          <label for="address">Address:</label>
+          <input
+            id="address"
+            placeholder="Town, Street, etc..."
+            name="address"
+          ></input>
           <button type="submit">Order</button>
         </Form>
       </div>
