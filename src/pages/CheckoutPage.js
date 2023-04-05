@@ -15,6 +15,7 @@ export const OrderAction = async ({ request }) => {
     phone: data.get("phone"),
     email: data.get("email"),
     address: data.get("address"),
+    products: [],
   };
 
   const sendOrder = await fetch("http://localhost:8000/orders/create/", {

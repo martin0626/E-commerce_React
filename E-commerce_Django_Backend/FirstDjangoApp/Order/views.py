@@ -14,3 +14,7 @@ class CreateOrder(generics.ListCreateAPIView):
     queryset = Order.objects.all()
     serializer_class = OrderSerializer
     permission_classes = [AllowAny]
+
+    # def create(self, request, *args, **kwargs):
+    #
+    #     return super(args, kwargs)
