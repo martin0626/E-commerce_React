@@ -25,3 +25,5 @@ class Order(models.Model):
     address = models.CharField(max_length=ADDRESS_MAX_LEN, validators=[MinLengthValidator(ADDRESS_MIN_LEN)])
 
     products = models.ManyToManyField(Products, null=True, blank=True)
+
+    description = models.TextField(null=True, blank=True)

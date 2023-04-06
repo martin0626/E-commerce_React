@@ -1,7 +1,16 @@
 import { Form } from "react-router-dom";
 import classes from "./CheckoutForm.module.css";
+import { useSelector } from "react-redux";
 
 const CheckoutForm = () => {
+  let cartItems = useSelector((state) => state.cart.cartItems);
+  console.log(cartItems);
+  let cartDescription = cartItems.map((el) => {
+    return `ID - ${el.id}: ${el.title} X ${el.quantity}`;
+  });
+
+  let cartItemsIds = cartItems.map((el) => el.id);
+
   return (
     <div className={classes["form-section"]}>
       <h1>Please fill in your delivery details</h1>
@@ -20,6 +29,18 @@ const CheckoutForm = () => {
             id="address"
             placeholder="Town, Street, etc..."
             name="address"
+          ></input>
+          <input
+            id="cart"
+            name="cart"
+            style={{ display: "none" }}
+            value={cartItemsIds}
+          ></input>
+          <input
+            id="description"
+            name="description"
+            style={{ display: "none" }}
+            value={cartDescription}
           ></input>
           <button type="submit">Order</button>
         </Form>

@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from Products.models import Products, Category
+from Products.models import Products, Category, Size
 
 
 # Register your models here.
@@ -19,3 +19,6 @@ class CategoriesAdmin(admin.ModelAdmin):
     list_display = ['title']
     inlines = [ProductsInline]
 
+@admin.register(Size)
+class ProductsAdmin(admin.ModelAdmin):
+    list_display = ['size']

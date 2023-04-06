@@ -1,5 +1,6 @@
 import { redirect } from "react-router";
 import CheckoutSection from "../components/Checkout/Checkout";
+import { useSelector } from "react-redux";
 
 const CheckoutPage = () => {
   return <CheckoutSection />;
@@ -15,7 +16,8 @@ export const OrderAction = async ({ request }) => {
     phone: data.get("phone"),
     email: data.get("email"),
     address: data.get("address"),
-    products: [],
+    products: JSON.parse(`[${data.get("cart")}]`),
+    description: data.get("description"),
   };
 
   const sendOrder = await fetch("http://localhost:8000/orders/create/", {
@@ -26,8 +28,6 @@ export const OrderAction = async ({ request }) => {
     body: JSON.stringify(orderData),
   });
 
-  // TODO Send Cart Data To Server
   const response = await sendOrder.json();
-  console.log(response);
   return redirect("/shop");
 };

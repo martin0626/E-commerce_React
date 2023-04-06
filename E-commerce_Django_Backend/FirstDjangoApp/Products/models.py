@@ -1,5 +1,5 @@
 from django.db import models
-from django.core.validators import MinValueValidator, MaxValueValidator
+from django.core.validators import MinValueValidator, MaxValueValidator, MinLengthValidator
 
 
 class Category(models.Model):
@@ -12,6 +12,18 @@ class Category(models.Model):
     def __repr__(self):
         return self.title
 
+
+class Size(models.Model):
+    SIZE_MAX_LEN = 20
+    SIZE_MIN_LEN = 1
+
+    size = models.CharField(max_length=SIZE_MAX_LEN, validators=[MinLengthValidator(SIZE_MIN_LEN)])
+
+    def __str__(self):
+        return self.size
+
+    def __repr__(self):
+        return self.size
 
 class Products(models.Model):
     TITLE_MAX_LEN = 20
@@ -43,6 +55,8 @@ class Products(models.Model):
     )
 
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
+
+    size = models.ManyToManyField(Size)
 
     def __str__(self):
         return self.title

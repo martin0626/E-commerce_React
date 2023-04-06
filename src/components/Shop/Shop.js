@@ -11,6 +11,10 @@ const Shop = () => {
   let [queryParams] = useSearchParams();
   const isLoading = useSelector((state) => state.ui.isLoading);
   let filter = queryParams.get("filter");
+  let size = queryParams.get("size");
+
+  // TODO Finish Size Filters
+  console.log(size);
 
   return (
     <section className={classes["shop-section"]}>

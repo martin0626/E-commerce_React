@@ -16,7 +16,6 @@ const Products = (props) => {
   if (filter) {
     products = products.filter((pr) => pr.category.title === filter);
   }
-  console.log(filter);
 
   return (
     <div className={classes.products}>
