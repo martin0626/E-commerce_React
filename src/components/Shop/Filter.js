@@ -22,7 +22,6 @@ const Filter = () => {
       let requestSizes = await fetch("http://localhost:8000/products/sizes/");
       const responseSizes = await requestSizes.json();
       setSizes(responseSizes);
-      console.log(responseSizes);
     };
 
     fetchCategories();
@@ -101,6 +100,9 @@ const Filter = () => {
           </li>
           <ul className={classes["dropdown-content"]}>
             <div className={classes.detail} />
+            <li onClick={sizeFilterHandler}>
+              <a href="#">All</a>
+            </li>
             {sizes &&
               sizes.map((el) => (
                 <li onClick={sizeFilterHandler}>

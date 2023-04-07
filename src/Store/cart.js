@@ -1,5 +1,4 @@
 import CartProduct from "../components/Cart/CartProduct";
-
 const { createSlice } = require("@reduxjs/toolkit");
 
 const CartSlice = createSlice({
@@ -14,7 +13,9 @@ const CartSlice = createSlice({
 
     AddItemToCart(state, action) {
       let inCart = state.cartItems.find(
-        (product) => product.id === action.payload.product.id
+        (product) =>
+          product.id === action.payload.product.id &&
+          product.size === action.payload.product.size
       );
       if (!inCart) {
         state.cartItems.push(action.payload.product);
@@ -28,16 +29,21 @@ const CartSlice = createSlice({
 
     RemoveItemFromCart(state, action) {
       let cartItem = state.cartItems.find(
-        (item) => item.id === action.payload.id
+        (item) =>
+          item.id === action.payload.id && item.size === action.payload.size
       );
 
       if (cartItem.quantity === 1) {
-        state.cartItems = state.cartItems.filter(
-          (p) => p.id !== action.payload.id
-        );
+        state.cartItems = state.cartItems.map((p) => {
+          if (p.id === action.payload.id && p.size === action.payload.size) {
+            return null;
+          }
+          return p;
+        });
+        state.cartItems = state.cartItems.filter((p) => p != null);
       } else {
         state.cartItems = state.cartItems.map((el) => {
-          if (el.id === action.payload.id) {
+          if (el.id === action.payload.id && el.size === action.payload.size) {
             el.quantity -= 1;
           }
           return el;

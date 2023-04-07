@@ -14,7 +14,6 @@ const Shop = () => {
   let size = queryParams.get("size");
 
   // TODO Finish Size Filters
-  console.log(size);
 
   return (
     <section className={classes["shop-section"]}>
@@ -23,7 +22,7 @@ const Shop = () => {
       {isLoading ? (
         <LoadingElement />
       ) : (
-        <Products gender={gender} filter={filter} />
+        <Products gender={gender} filter={filter} size={size} />
       )}
     </section>
   );

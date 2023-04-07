@@ -14,6 +14,8 @@ class Category(models.Model):
 
 
 class Size(models.Model):
+
+
     SIZE_MAX_LEN = 20
     SIZE_MIN_LEN = 1
 

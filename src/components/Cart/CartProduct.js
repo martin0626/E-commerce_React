@@ -6,6 +6,8 @@ const CartProduct = (props) => {
   const product = props.product;
   const dispatch = useDispatch();
 
+  console.log(product);
+
   const deleteHandler = () => {
     dispatch(cartAction.RemoveItemFromCart(product));
   };

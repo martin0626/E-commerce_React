@@ -8,15 +8,14 @@ const SingleProduct = (props) => {
   const product = props.product;
   const dispatch = useDispatch();
 
-  const AddToCartHandler = () => {
-    dispatch(
-      cartAction.AddItemToCart({
-        product: { ...product, quantity: 1 },
-        currQuantity: 1,
-      })
-    );
-  };
-
+  // const AddToCartHandler = () => {
+  //   dispatch(
+  //     cartAction.AddItemToCart({
+  //       product: { ...product, quantity: 1 },
+  //       currQuantity: 1,
+  //     })
+  //   );
+  // };
   return (
     <section className={classes.product}>
       <div className={classes["product-element"]}>
@@ -27,9 +26,9 @@ const SingleProduct = (props) => {
           <img src={product.image} />
         </div>
         <div className={classes.action}>
-          <a>
+          {/* <a>
             <span onClick={AddToCartHandler} className="fa fa-cart-plus"></span>
-          </a>
+          </a> */}
           <Link to={`details/${product.id}`} end>
             <span className="fa fa-eye"></span>
           </Link>

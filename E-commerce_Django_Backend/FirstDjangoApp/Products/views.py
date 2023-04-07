@@ -33,10 +33,10 @@ class AllProductsSerializer(serializers.ModelSerializer):
         fields = ['id', 'title', 'price', 'image', 'category', 'gender', 'size']
 
 
-class SingleProductsSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Products
-        fields = ['id', 'title', 'price', 'image', 'description']
+# class SingleProductsSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = Products
+#         fields = ['id', 'title', 'price', 'image', 'description']
 
 
 
@@ -48,7 +48,7 @@ class GetAllProducts(generics.ListAPIView):
 
 class GetSingleProduct(generics.RetrieveAPIView):
     queryset = Products.objects.all()
-    serializer_class = SingleProductsSerializer
+    serializer_class = AllProductsSerializer
     permission_classes = [AllowAny]
 
 

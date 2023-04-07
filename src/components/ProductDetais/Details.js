@@ -7,7 +7,9 @@ import classes from "./Details.module.css";
 const DetailsElement = () => {
   const { productId } = useParams();
   const [product, setProduct] = useState({});
+  const [sizes, setSizes] = useState({});
   const [productQuantity, setProductQuantity] = useState(0);
+  const [chosenSize, setChosenSize] = useState(null);
   const dispatch = useDispatch();
 
   const quantityHandler = (step) => {
@@ -19,14 +21,27 @@ const DetailsElement = () => {
   };
 
   const addToCartHandler = () => {
-    if (productQuantity !== 0) {
+    // TODO Add Ui Alert Box
+    if (productQuantity !== 0 && chosenSize) {
       dispatch(
         cartAction.AddItemToCart({
-          product: { ...product, quantity: productQuantity },
+          product: {
+            id: product.id,
+            title: product.title,
+            image: product.image,
+            size: chosenSize,
+            price: product.price,
+            quantity: productQuantity,
+          },
           currQuantity: productQuantity,
         })
       );
     }
+  };
+
+  const choseSizeHandler = (el) => {
+    const currChosenSize = el.target.textContent;
+    setChosenSize(currChosenSize);
   };
 
   useEffect(() => {
@@ -62,13 +77,18 @@ const DetailsElement = () => {
           the parent a grid container. .pricing1box pricing1box-div
         </p>
         <div className={classes.sizes}>
-          <p>XS</p>
-          <p className={classes.active}>S</p>
-          <p>M</p>
-          <p>L</p>
-          <p className={classes["out-of-stock"]}>XL</p>
-          <p>XXL</p>
-          <p className={classes["out-of-stock"]}>XXXL</p>
+          {product.size ? (
+            product.size.map((s) => (
+              <p
+                className={s.size === chosenSize && classes.active}
+                onClick={choseSizeHandler}
+              >
+                {s.size}
+              </p>
+            ))
+          ) : (
+            <p>Out Of Stock</p>
+          )}
         </div>
         <div className={classes["add-to-cart-section"]}>
           <div className={classes.quantity}>
