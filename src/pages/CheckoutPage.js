@@ -1,6 +1,5 @@
 import { redirect } from "react-router";
 import CheckoutSection from "../components/Checkout/Checkout";
-import { useSelector } from "react-redux";
 
 const CheckoutPage = () => {
   return <CheckoutSection />;

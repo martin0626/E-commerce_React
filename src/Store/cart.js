@@ -1,14 +1,18 @@
+import localStorage from "redux-persist/es/storage";
 import CartProduct from "../components/Cart/CartProduct";
+import { json } from "react-router";
 const { createSlice } = require("@reduxjs/toolkit");
+
+const defaultState = { cartItems: [], quantity: 0, total: 0 };
 
 const CartSlice = createSlice({
   name: "cart",
-  initialState: { cartItems: [], quantity: 0, total: 0 },
+  initialState: defaultState,
   reducers: {
-    ReplaceCart(state, action) {
-      state.cartItems = action.payload.cartItems;
-      state.quantity = action.payload.quantity;
-      state.total = action.payload.total;
+    ClearCart(state) {
+      state.cartItems = [];
+      state.quantity = 0;
+      state.total = 0;
     },
 
     AddItemToCart(state, action) {

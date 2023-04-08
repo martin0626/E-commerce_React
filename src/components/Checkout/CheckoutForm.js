@@ -1,15 +1,21 @@
 import { Form } from "react-router-dom";
 import classes from "./CheckoutForm.module.css";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { cartAction } from "../../Store/cart";
 
 const CheckoutForm = () => {
   let cartItems = useSelector((state) => state.cart.cartItems);
+  const dispatch = useDispatch();
   console.log(cartItems);
   let cartDescription = cartItems.map((el) => {
-    return `ID - ${el.id}: ${el.title} X ${el.quantity}`;
+    return `ID - ${el.id}: ${el.title} X ${el.quantity} Size - ${el.size}  `;
   });
 
   let cartItemsIds = cartItems.map((el) => el.id);
+
+  const onSubmitHandler = () => {
+    dispatch(cartAction.ClearCart());
+  };
 
   return (
     <div className={classes["form-section"]}>
@@ -42,7 +48,9 @@ const CheckoutForm = () => {
             style={{ display: "none" }}
             value={cartDescription}
           ></input>
-          <button type="submit">Order</button>
+          <button onClick={onSubmitHandler} type="submit">
+            Order
+          </button>
         </Form>
       </div>
     </div>

@@ -8,7 +8,6 @@ import { Fragment } from "react";
 const Cart = () => {
   const cartItems = useSelector((state) => state.cart.cartItems);
   const total = useSelector((state) => state.cart.total);
-  console.log(cartItems);
   return (
     <Fragment>
       <Shop />

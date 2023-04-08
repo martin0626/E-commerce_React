@@ -60,11 +60,13 @@
   border: 2px solid #333;
   border-radius: 8px;
   text-align: center;
+  transition: all 0.3s;
 }
 
 .sizes p:hover {
-  border: 2px solid #5b5b5b;
-  color: #5b5b5b;
+  border: 2px solid #333;
+  color: #f0f0f0;
+  background-color: #333;
   cursor: pointer;
 }
 
@@ -79,6 +81,10 @@
 
 .active {
   background-color: #333;
+  color: #f0f0f0;
+}
+
+.active:hover {
   color: #f0f0f0;
 }
 
