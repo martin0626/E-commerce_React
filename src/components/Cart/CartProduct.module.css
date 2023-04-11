@@ -36,3 +36,7 @@
   cursor: pointer;
   color: #6b6b6b;
 }
+
+.description p {
+  margin: 0;
+}

@@ -1,0 +1,30 @@
+.price {
+  font-size: 1.4rem;
+  color: #333;
+  margin: 0;
+}
+
+.price p {
+  margin: 0;
+}
+
+.old-price {
+  font-size: 1.3rem;
+  color: #bbbbbb;
+  -webkit-text-decoration-line: line-through;
+  text-decoration-line: line-through;
+}
+
+.new-price {
+  color: #f03e3e;
+  display: flex;
+  align-items: center;
+  gap: 2.2rem;
+}
+
+.new-price p:nth-last-of-type(2) {
+  font-weight: bold;
+}
+.new-price p:nth-last-of-type(1) {
+  font-size: 1.2rem;
+}

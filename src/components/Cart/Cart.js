@@ -1,13 +1,14 @@
 import { useSelector } from "react-redux";
 import CartProduct from "./CartProduct";
 import classes from "./Cart.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Shop from "../Shop/Shop";
 import { Fragment } from "react";
 
 const Cart = () => {
   const cartItems = useSelector((state) => state.cart.cartItems);
   const total = useSelector((state) => state.cart.total);
+  const navigate = useNavigate();
   return (
     <Fragment>
       <Shop />
@@ -18,9 +19,9 @@ const Cart = () => {
               <i className="fa fa-shopping-cart"></i>
             </div>
             <div className={classes.detail}></div>
-            <Link to="/shop" className={classes.close}>
+            <a onClick={() => navigate(-1)} className={classes.close}>
               <i className="fa fa-window-close-o" aria-hidden="true"></i>
-            </Link>
+            </a>
             <h1 className={classes["prm-header"]}>Shopping Bag</h1>
             <div className={classes["cart-products"]}>
               {cartItems.map((product) => (

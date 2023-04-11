@@ -3,11 +3,12 @@ import { useDispatch } from "react-redux";
 import { useParams } from "react-router";
 import { cartAction } from "../../Store/cart";
 import classes from "./Details.module.css";
+import PriceElement from "./Price";
+import helpers from "../../utils";
 
 const DetailsElement = () => {
   const { productId } = useParams();
   const [product, setProduct] = useState({});
-  const [sizes, setSizes] = useState({});
   const [productQuantity, setProductQuantity] = useState(0);
   const [chosenSize, setChosenSize] = useState(null);
   const dispatch = useDispatch();
@@ -30,7 +31,7 @@ const DetailsElement = () => {
             title: product.title,
             image: product.image,
             size: chosenSize,
-            price: product.price,
+            price: helpers.calculateSalePrice(product.price, product.sale),
             quantity: productQuantity,
           },
           currQuantity: productQuantity,
@@ -70,12 +71,14 @@ const DetailsElement = () => {
         </div>
       </div>
       <div className={classes["form-description"]}>
-        <h1 className="heading-secondary">{product.title}</h1>
-        <p className={classes.price}>{product.price} $</p>
-        <p className={classes.text}>
-          You can use grid properties on the image and text, as well. Just make
-          the parent a grid container. .pricing1box pricing1box-div
-        </p>
+        <div className={classes["title-section"]}>
+          <h1 className="heading-secondary">{product.title}</h1>
+          {product.sale > 0 && (
+            <p className={classes["sale-title"]}>-{product.sale}%</p>
+          )}
+        </div>
+        <PriceElement price={product.price} sale={product.sale} />
+        <p className={classes.text}>{product.description}</p>
         <div className={classes.sizes}>
           {product.size ? (
             product.size.map((s) => (

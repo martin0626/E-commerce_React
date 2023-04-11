@@ -141,3 +141,17 @@
   box-shadow: 0 0 0 2px #333;
   color: #333;
 }
+
+.title-section {
+  position: relative;
+}
+
+.sale-title {
+  color: #f03e3e;
+  font-weight: bold;
+  font-size: 0.8rem;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  right: 48%;
+}
