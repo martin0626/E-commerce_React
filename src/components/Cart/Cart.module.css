@@ -64,9 +64,10 @@
   position: absolute;
   padding: 0;
   margin: 0;
-  top: -4.2rem;
+  top: 0;
   left: 50%;
-  transform: translateX(-114%);
+  transform: translate(-60%, -130%);
+  /* transform: translateX(-114%); */
   color: #f0f0f0;
 }
 
@@ -77,9 +78,9 @@
   border-right: 1.2rem solid transparent;
   border-bottom: 1.2rem solid #f0f0f0;
   position: absolute;
-  top: -1.2rem;
+  top: 0;
   left: 50%;
-  transform: translateX(-100%);
+  transform: translate(-50%, -100%);
 }
 
 .checkout-section {

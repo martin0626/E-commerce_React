@@ -1,0 +1,120 @@
+.form-description {
+  padding: 2rem;
+}
+
+.price {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.text {
+  font-size: 1.4rem;
+}
+
+.sizes {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  font-size: 1.2rem;
+  font-weight: 500;
+  gap: 1.2rem;
+}
+
+.sizes p {
+  border: 2px solid #333;
+  border-radius: 8px;
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.sizes p:hover {
+  border: 2px solid #333;
+  color: #f0f0f0;
+  background-color: #333;
+  cursor: pointer;
+}
+
+.out-of-stock {
+  border: 2px solid #a1a1a1 !important;
+  color: #a1a1a1;
+}
+
+.out-of-stock:hover {
+  cursor: not-allowed !important;
+}
+
+.active {
+  background-color: #333;
+  color: #f0f0f0;
+}
+
+.active:hover {
+  color: #f0f0f0;
+}
+
+/* Add To Cart */
+
+.add-to-cart-section {
+  margin-top: 3.2rem;
+  display: flex;
+  font-size: 1.2rem;
+  gap: 3.6rem;
+  align-items: center;
+}
+
+.quantity {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.quantity-controler {
+  font-size: 0.8rem;
+}
+
+.quantity-controler p {
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: #333 1px solid;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.quantity-controler p:hover {
+  color: #fff;
+  background-color: #333;
+}
+
+.quantity {
+  font-size: 1.6rem;
+}
+
+.add-btn {
+  text-transform: uppercase;
+  color: #ffff;
+  font-size: 1.2rem;
+  background-color: #333;
+  padding: 0.8rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.add-btn:hover {
+  background-color: #fff;
+  box-shadow: 0 0 0 2px #333;
+  color: #333;
+}
+
+.title-section {
+  position: relative;
+}
+
+.sale-title {
+  color: #f03e3e;
+  font-weight: bold;
+  font-size: 0.8rem;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  right: 48%;
+}

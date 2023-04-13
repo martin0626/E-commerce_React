@@ -16,11 +16,11 @@ const Cart = () => {
         <div className={classes.cart}>
           <div className={classes.content}>
             <div className={classes["cart-icon"]}>
-              <i className="fa fa-shopping-cart"></i>
+              <i className="fas fa-shopping-cart"></i>
             </div>
             <div className={classes.detail}></div>
             <a onClick={() => navigate(-1)} className={classes.close}>
-              <i className="fa fa-window-close-o" aria-hidden="true"></i>
+              <i className="fas fa-times" aria-hidden="true"></i>
             </a>
             <h1 className={classes["prm-header"]}>Shopping Bag</h1>
             <div className={classes["cart-products"]}>

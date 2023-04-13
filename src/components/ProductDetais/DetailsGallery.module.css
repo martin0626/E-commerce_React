@@ -1,22 +1,3 @@
-.details {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-
-.image {
-  margin: 2rem 50%;
-  width: 28rem;
-}
-
-.image img {
-  width: 100%;
-  transform: translateX(-50%);
-}
-
-.form-description {
-  padding: 2rem;
-}
-
 .gallery {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -34,4 +15,14 @@
 .gallery img:hover {
   cursor: pointer;
   transform: translateY(-0.6rem);
+}
+
+.image {
+  margin: 2rem 50%;
+  width: 28rem;
+}
+
+.image img {
+  width: 100%;
+  transform: translateX(-50%);
 }
