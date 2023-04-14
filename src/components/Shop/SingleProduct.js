@@ -7,7 +7,10 @@ const SingleProduct = (props) => {
 
   return (
     <section className={classes.product}>
-      <Link to={`details/${product.id}`} className={classes["product-element"]}>
+      <Link
+        to={`/shop/details/${product.id}`}
+        className={classes["product-element"]}
+      >
         {product.sale > 0 && (
           <div className={classes.sale}>-{product.sale}%</div>
         )}

@@ -17,8 +17,8 @@ const Products = (props) => {
   const gender = props.gender;
   const filter = props.filter;
   const size = props.size;
+  let products = props.products;
 
-  let products = useSelector((state) => state.products.products);
   if (size && size != "All") {
     products = products.filter((pr) => true === sizeFilter(pr.size, size));
   }

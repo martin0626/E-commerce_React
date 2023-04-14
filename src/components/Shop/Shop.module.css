@@ -3,3 +3,24 @@
   grid-template-columns: 1fr 8fr;
   padding: 1.2rem 1.2rem;
 }
+
+.paginator {
+  display: flex;
+  gap: 0.6rem;
+  text-decoration: none;
+  list-style: none;
+  width: 20rem;
+  grid-column: 2fr;
+  margin: 0 auto;
+  margin-top: 12rem;
+  align-items: center;
+}
+
+.paginator-a {
+  padding: 0.8rem;
+  background-color: #333;
+  color: #f0f0f0;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border-radius: 8px;
+}
