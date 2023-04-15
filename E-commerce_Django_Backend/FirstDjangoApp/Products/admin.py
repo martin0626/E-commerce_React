@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from Products.models import Products, Category, Size
+from Products.models import Products, Category, Size, ProductGallery
 
 
 # Register your models here.
@@ -22,3 +22,8 @@ class CategoriesAdmin(admin.ModelAdmin):
 @admin.register(Size)
 class ProductsAdmin(admin.ModelAdmin):
     list_display = ['size']
+
+
+@admin.register(ProductGallery)
+class ProductsGalleryAdmin(admin.ModelAdmin):
+    list_display = ['image', 'product']

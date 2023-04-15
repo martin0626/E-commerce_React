@@ -2,6 +2,8 @@ from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator, MinLengthValidator
 
 
+
+
 class Category(models.Model):
     TITLE_MAX_LEN = 20
     title = models.CharField(max_length=TITLE_MAX_LEN)
@@ -62,3 +64,8 @@ class Products(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class ProductGallery(models.Model):
+    image = models.URLField(max_length=200)
+    product = models.ForeignKey(Products, on_delete=models.CASCADE, related_name='gallery')

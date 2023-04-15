@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from rest_framework import generics, serializers
 from rest_framework.permissions import AllowAny
 
-from Products.models import Products, Category, Size
+from Products.models import Products, Category, Size, ProductGallery
 
 
 class CategorySerializer(serializers.ModelSerializer):
@@ -16,6 +16,12 @@ class ForProductCategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
         fields = ['title']
+
+
+class ForProductGallerySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ProductGallery
+        fields = ['image']
 
 
 class SizeSerializer(serializers.ModelSerializer):
@@ -33,10 +39,15 @@ class AllProductsSerializer(serializers.ModelSerializer):
         fields = ['id', 'title', 'price', 'image', 'category', 'gender', 'size', 'sale', 'description']
 
 
-# class SingleProductsSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = Products
-#         fields = ['id', 'title', 'price', 'image', 'description']
+class SingleProductsSerializer(serializers.ModelSerializer):
+    gallery = ForProductGallerySerializer(many=True)
+    size = SizeSerializer(many=True)
+    category = ForProductCategorySerializer(many=False)
+
+
+    class Meta:
+        model = Products
+        fields = ['id', 'title', 'price', 'image', 'category', 'gender', 'size', 'sale', 'description', 'gallery']
 
 
 
@@ -48,7 +59,7 @@ class GetAllProducts(generics.ListAPIView):
 
 class GetSingleProduct(generics.RetrieveAPIView):
     queryset = Products.objects.all()
-    serializer_class = AllProductsSerializer
+    serializer_class = SingleProductsSerializer
     permission_classes = [AllowAny]
 
 

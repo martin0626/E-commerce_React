@@ -8,7 +8,7 @@ import LoadingElement from "../Ui/Loading";
 import { Fragment, useState } from "react";
 import ReactPaginate from "react-paginate";
 
-const PRODUCTS_PER_PAGE = 4;
+const PRODUCTS_PER_PAGE = 20;
 
 const Shop = () => {
   // Filters, Sizes and Gender Filtering
@@ -23,7 +23,7 @@ const Shop = () => {
   // Fetch All Products
   let products = useSelector((state) => state.products.products);
 
-  // Pagination
+  // Pagination From: https://www.npmjs.com/package/react-paginate
   const [productsOffset, setProductsOffset] = useState(0);
   const endOffset = productsOffset + PRODUCTS_PER_PAGE;
   const currProducts = products.slice(productsOffset, endOffset);
@@ -34,7 +34,7 @@ const Shop = () => {
     setProductsOffset(newOffset);
   };
 
-  // TODO Style Paginator https://www.npmjs.com/package/react-paginate
+  // TODO Style Paginator
   return (
     <Fragment>
       <section className={classes["shop-section"]}>
@@ -51,16 +51,23 @@ const Shop = () => {
           />
         )}
       </section>
-      <ReactPaginate
-        nextLabel="next >"
-        onPageChange={handlePageClick}
-        pageRangeDisplayed={2}
-        pageCount={pageCount}
-        previousLabel="< previous"
-        renderOnZeroPageCount={null}
-        containerClassName={classes.paginator}
-        pageLinkClassName={classes["paginator-a"]}
-      />
+      {pageCount > 1 && (
+        <ReactPaginate
+          breakAriaLabels={"..."}
+          nextLabel="Next >"
+          onPageChange={handlePageClick}
+          pageRangeDisplayed={5}
+          pageCount={pageCount}
+          previousLabel="< Back"
+          renderOnZeroPageCount={null}
+          containerClassName={classes.paginator}
+          pageLinkClassName={classes["paginator-a"]}
+          previousClassName={classes.previous}
+          nextClassName={classes.next}
+          activeLinkClassName={classes.active}
+          disabledClassName={classes["disabled-nb"]}
+        />
+      )}
     </Fragment>
   );
 };

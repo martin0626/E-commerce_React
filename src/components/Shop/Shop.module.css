@@ -6,21 +6,55 @@
 
 .paginator {
   display: flex;
-  gap: 0.6rem;
+  gap: 0.4rem;
   text-decoration: none;
   list-style: none;
-  width: 20rem;
-  grid-column: 2fr;
+  width: 40rem;
   margin: 0 auto;
   margin-top: 12rem;
-  align-items: center;
+  justify-content: center;
 }
 
 .paginator-a {
-  padding: 0.8rem;
+  padding: 1rem;
   background-color: #333;
   color: #f0f0f0;
   font-size: 1.2rem;
   cursor: pointer;
   border-radius: 8px;
+  font-weight: bold;
+  border: 2px solid #333;
+  transition: all 0.3s;
+}
+
+.previous a,
+.next a {
+  background-color: #333;
+  padding: 1rem;
+  font-size: 1rem;
+  color: #f0f0f0;
+  cursor: pointer;
+  border-radius: 8px;
+  border: 2px solid #333;
+  transition: all 0.3s;
+  font-weight: bold;
+}
+
+.paginator-a:hover,
+.previous a:hover,
+.next a:hover {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.active {
+  background-color: #f0f0f0;
+  color: #333;
+  cursor: not-allowed;
+}
+
+.disabled-nb a {
+  background-color: #f0f0f0;
+  color: #333;
+  cursor: not-allowed;
 }
