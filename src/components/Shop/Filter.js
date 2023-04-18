@@ -6,8 +6,8 @@ const Filter = () => {
   const [isOpenWomen, setIsOpenWomen] = useState(false);
   const [isOpenMen, setIsOpenMen] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
-  const [categories, setCategories] = useState([]);
-  const [sizes, setSizes] = useState([]);
+  const [categories, setCategories] = useState(null);
+  const [sizes, setSizes] = useState(null);
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -78,7 +78,7 @@ const Filter = () => {
             <li onClick={filterHandler}>
               <a>All</a>
             </li>
-            {categories &&
+            {categories != null &&
               categories.map((c) => (
                 <li onClick={filterHandler}>
                   <a>{c.title}</a>
@@ -103,7 +103,7 @@ const Filter = () => {
             <li onClick={sizeFilterHandler}>
               <a href="#">All</a>
             </li>
-            {sizes &&
+            {sizes != null &&
               sizes.map((el) => (
                 <li onClick={sizeFilterHandler}>
                   <a href="#">{el.size}</a>

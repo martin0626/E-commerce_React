@@ -6,15 +6,17 @@ import { cartAction } from "../../Store/cart";
 const CheckoutForm = () => {
   let cartItems = useSelector((state) => state.cart.cartItems);
   const dispatch = useDispatch();
-  console.log(cartItems);
   let cartDescription = cartItems.map((el) => {
     return `ID - ${el.id}: ${el.title} X ${el.quantity} Size - ${el.size}  `;
   });
 
   let cartItemsIds = cartItems.map((el) => el.id);
+  console.log(cartItemsIds);
 
   const onSubmitHandler = () => {
-    dispatch(cartAction.ClearCart());
+    setTimeout(() => {
+      dispatch(cartAction.ClearCart());
+    }, 1000);
   };
 
   return (

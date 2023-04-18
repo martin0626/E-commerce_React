@@ -20,6 +20,13 @@ const uiSlice = createSlice({
         size: action.payload.size,
       };
     },
+    setMessage(state, action) {
+      state.message = {
+        title: action.payload.title,
+        text: action.payload.text,
+        status: action.payload.status,
+      };
+    },
     clearUi(state, action) {
       state.isLoading = false;
       state.message = "";

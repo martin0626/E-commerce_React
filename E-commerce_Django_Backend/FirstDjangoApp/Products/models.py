@@ -1,7 +1,6 @@
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator, MinLengthValidator
-
-
+from django.utils.text import slugify
 
 
 class Category(models.Model):
@@ -17,7 +16,6 @@ class Category(models.Model):
 
 class Size(models.Model):
 
-
     SIZE_MAX_LEN = 20
     SIZE_MIN_LEN = 1
 
@@ -28,6 +26,7 @@ class Size(models.Model):
 
     def __repr__(self):
         return self.size
+
 
 class Products(models.Model):
     TITLE_MAX_LEN = 20
@@ -62,8 +61,14 @@ class Products(models.Model):
 
     size = models.ManyToManyField(Size)
 
+    slug = models.SlugField(max_length=255, null=True, blank=True, unique=True)
+
     def __str__(self):
         return self.title
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        super(Products, self).save(*args, **kwargs)
 
 
 class ProductGallery(models.Model):

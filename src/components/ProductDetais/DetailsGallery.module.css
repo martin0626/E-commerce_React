@@ -17,6 +17,11 @@
   color: #f0f0f0;
   font-size: 2rem;
   cursor: pointer;
+  transition: all 0.3s;
+}
+
+.close:hover {
+  color: #b7b7b7;
 }
 
 .image-modal img {

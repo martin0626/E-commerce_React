@@ -6,12 +6,14 @@ import helpers from "../../utils";
 import PriceElement from "./Price";
 import { uiActions } from "../../Store/ui-slice";
 import NewCartProduct from "../Ui/NewCartProduct";
+import NotificationElement from "../Ui/Notifications";
 
 const DetailsDescription = (props) => {
   const product = props.product;
   const [productQuantity, setProductQuantity] = useState(0);
   const [chosenSize, setChosenSize] = useState(null);
   const newCart = useSelector((state) => state.ui.newItem);
+  const message = useSelector((state) => state.ui.message);
   const dispatch = useDispatch();
 
   const quantityHandler = (step) => {
@@ -45,11 +47,18 @@ const DetailsDescription = (props) => {
           product: product.size,
         })
       );
-
-      setTimeout(() => {
-        dispatch(uiActions.clearUi());
-      }, 4000);
+    } else {
+      dispatch(
+        uiActions.setMessage({
+          title: "Fill Size & Quantity",
+          text: "Please Choose Size And Quantity Greater Than 0",
+          status: "reminder",
+        })
+      );
     }
+    setTimeout(() => {
+      dispatch(uiActions.clearUi());
+    }, 4000);
   };
 
   const choseSizeHandler = (el) => {
@@ -57,11 +66,10 @@ const DetailsDescription = (props) => {
     setChosenSize(currChosenSize);
   };
 
-  console.log(newCart);
-
   return (
     <Fragment>
       {newCart && <NewCartProduct product={{ ...product, size: chosenSize }} />}
+      {message && <NotificationElement />}
       <div className={classes["form-description"]}>
         <div className={classes["title-section"]}>
           <h1 className="heading-secondary">{product.title}</h1>

@@ -35,3 +35,12 @@
   cursor: pointer;
   transform: translateY(-0.6rem);
 }
+
+.not-exist {
+  font-size: 3.2rem;
+  width: 60rem;
+  margin: 0 auto;
+  margin-bottom: 40rem;
+  margin-top: 20rem;
+  letter-spacing: 2px;
+}

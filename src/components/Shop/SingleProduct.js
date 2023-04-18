@@ -3,12 +3,11 @@ import classes from "./SingleProduct.module.css";
 
 const SingleProduct = (props) => {
   const product = props.product;
-  console.log(product);
 
   return (
     <section className={classes.product}>
       <Link
-        to={`/shop/details/${product.id}`}
+        to={`/shop/details/${product.slug}`}
         className={classes["product-element"]}
       >
         {product.sale > 0 && (

@@ -36,7 +36,8 @@ class AllProductsSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Products
-        fields = ['id', 'title', 'price', 'image', 'category', 'gender', 'size', 'sale', 'description']
+        fields = ['id', 'title', 'price', 'image', 'category', 'gender', 'size', 'sale', 'description', 'slug']
+        lookup_field = 'slug'
 
 
 class SingleProductsSerializer(serializers.ModelSerializer):
@@ -44,10 +45,10 @@ class SingleProductsSerializer(serializers.ModelSerializer):
     size = SizeSerializer(many=True)
     category = ForProductCategorySerializer(many=False)
 
-
     class Meta:
         model = Products
-        fields = ['id', 'title', 'price', 'image', 'category', 'gender', 'size', 'sale', 'description', 'gallery']
+        fields = ['id', 'title', 'price', 'image', 'category', 'gender', 'size', 'sale', 'description', 'gallery', 'slug']
+        lookup_field = 'slug'
 
 
 
@@ -55,12 +56,14 @@ class GetAllProducts(generics.ListAPIView):
     queryset = Products.objects.all()
     serializer_class = AllProductsSerializer
     permission_classes = [AllowAny]
+    lookup_field = 'slug'
 
 
 class GetSingleProduct(generics.RetrieveAPIView):
     queryset = Products.objects.all()
     serializer_class = SingleProductsSerializer
     permission_classes = [AllowAny]
+    lookup_field = 'slug'
 
 
 class GetAllCategories(generics.ListAPIView):
