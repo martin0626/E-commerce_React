@@ -1,0 +1,39 @@
+.filter-elements {
+  padding: 1.2rem;
+}
+
+.ctg-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #333;
+  border-bottom: 1px solid #333;
+  margin-bottom: 1.2rem;
+  font-size: 1.4rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: all 0.3s;
+}
+
+.ctg-button i {
+  font-size: 1.2rem;
+}
+
+.ctg-button:hover,
+.ctg-button:active {
+  cursor: pointer;
+  color: #868686;
+  border-bottom: 1px solid #868686;
+}
+
+.ctg-button p {
+  margin: 0.6rem;
+}
+
+.elements-list {
+  margin-bottom: 2.4rem;
+}
+
+.radio-choise input {
+  margin: 0.6rem;
+}

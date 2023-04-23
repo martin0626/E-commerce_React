@@ -30,7 +30,7 @@ const Cart = () => {
             </div>
           </div>
           <div className={classes["checkout-section"]}>
-            <div className={classes.total}>Total: {total}$</div>
+            <div className={classes.total}>Total: {total.toFixed(2)}$</div>
             <Link className={classes.payment} to="/checkout">
               Pay
             </Link>

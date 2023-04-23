@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import classes from "./Filter.module.css";
+import FilterElements from "./FilterElements";
 
 const Filter = () => {
   const [isOpenWomen, setIsOpenWomen] = useState(false);
@@ -9,6 +10,7 @@ const Filter = () => {
   const [categories, setCategories] = useState(null);
   const [sizes, setSizes] = useState(null);
 
+  // Fetching Filter Elements From Server And Set Data To State
   useEffect(() => {
     const fetchCategories = async () => {
       let requestCategories = await fetch(
@@ -28,6 +30,7 @@ const Filter = () => {
     fetchSizes();
   }, []);
 
+  // Filters Actions On CLick
   const openMenHandler = () => {
     setIsOpenMen(!isOpenMen);
   };
@@ -36,6 +39,7 @@ const Filter = () => {
     setIsOpenWomen(!isOpenWomen);
   };
 
+  // Filtering Action For Size And Categories
   const filterHandler = (e) => {
     let currFilter = e.target.textContent;
     let sizeFilter = searchParams.get("size");
@@ -58,6 +62,7 @@ const Filter = () => {
     }
     setSearchParams({ size: currSize });
   };
+
   return (
     <div className={classes.filter}>
       <ul>
@@ -112,6 +117,7 @@ const Filter = () => {
           </ul>
         </div>
       </ul>
+      <FilterElements categories={categories} sizes={sizes} />
     </div>
   );
 };
