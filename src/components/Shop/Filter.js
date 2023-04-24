@@ -4,9 +4,9 @@ import classes from "./Filter.module.css";
 import FilterElements from "./FilterElements";
 
 const Filter = () => {
-  const [isOpenWomen, setIsOpenWomen] = useState(false);
-  const [isOpenMen, setIsOpenMen] = useState(false);
-  const [searchParams, setSearchParams] = useSearchParams();
+  // const [isOpenWomen, setIsOpenWomen] = useState(false);
+  // const [isOpenMen, setIsOpenMen] = useState(false);
+  // const [searchParams, setSearchParams] = useSearchParams();
   const [categories, setCategories] = useState(null);
   const [sizes, setSizes] = useState(null);
 
@@ -31,41 +31,41 @@ const Filter = () => {
   }, []);
 
   // Filters Actions On CLick
-  const openMenHandler = () => {
-    setIsOpenMen(!isOpenMen);
-  };
+  // const openMenHandler = () => {
+  //   setIsOpenMen(!isOpenMen);
+  // };
 
-  const openWomenHandler = () => {
-    setIsOpenWomen(!isOpenWomen);
-  };
+  // const openWomenHandler = () => {
+  //   setIsOpenWomen(!isOpenWomen);
+  // };
 
-  // Filtering Action For Size And Categories
-  const filterHandler = (e) => {
-    let currFilter = e.target.textContent;
-    let sizeFilter = searchParams.get("size");
+  // // Filtering Action For Size And Categories
+  // const filterHandler = (e) => {
+  //   let currFilter = e.target.textContent;
+  //   let sizeFilter = searchParams.get("size");
 
-    if (sizeFilter) {
-      setSearchParams({ filter: currFilter, size: sizeFilter });
-      return;
-    }
+  //   if (sizeFilter) {
+  //     setSearchParams({ filter: currFilter, size: sizeFilter });
+  //     return;
+  //   }
 
-    setSearchParams({ filter: currFilter });
-  };
+  //   setSearchParams({ filter: currFilter });
+  // };
 
-  const sizeFilterHandler = (e) => {
-    let currSize = e.target.textContent;
-    let filter = searchParams.get("filter");
+  // const sizeFilterHandler = (e) => {
+  //   let currSize = e.target.textContent;
+  //   let filter = searchParams.get("filter");
 
-    if (filter) {
-      setSearchParams({ size: currSize, filter: searchParams.get("filter") });
-      return;
-    }
-    setSearchParams({ size: currSize });
-  };
+  //   if (filter) {
+  //     setSearchParams({ size: currSize, filter: searchParams.get("filter") });
+  //     return;
+  //   }
+  //   setSearchParams({ size: currSize });
+  // };
 
   return (
     <div className={classes.filter}>
-      <ul>
+      {/* <ul>
         <div
           onClick={openMenHandler}
           className={
@@ -116,7 +116,7 @@ const Filter = () => {
               ))}
           </ul>
         </div>
-      </ul>
+      </ul> */}
       <FilterElements categories={categories} sizes={sizes} />
     </div>
   );

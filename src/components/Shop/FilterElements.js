@@ -2,6 +2,7 @@ import { useState } from "react";
 import classes from "./FilterElements.module.css";
 import { Form } from "react-router-dom";
 
+// TODO On Reload Checkboxes to keep the state & Add Clear Filters Button
 const FilterElements = (props) => {
   const categories = props.categories;
   const sizes = props.sizes;
@@ -37,17 +38,18 @@ const FilterElements = (props) => {
           </div>
           {isOpenCategories && (
             <div className={classes["elements-list"]}>
-              {categories.map((category) => (
-                <div key={category.id} className={classes["radio-choise"]}>
-                  <input
-                    type="checkbox"
-                    id={category.id}
-                    name={category.title}
-                    value={category.title}
-                  />
-                  <label for={category.id}>{category.title}</label>
-                </div>
-              ))}
+              {categories &&
+                categories.map((category) => (
+                  <div key={category.id} className={classes["radio-choise"]}>
+                    <input
+                      type="checkbox"
+                      id={category.id}
+                      name="category"
+                      value={category.title}
+                    />
+                    <label for={category.id}>{category.title}</label>
+                  </div>
+                ))}
             </div>
           )}
         </div>
@@ -62,17 +64,18 @@ const FilterElements = (props) => {
           </div>
           {isOpenSizes && (
             <div className={classes["elements-list"]}>
-              {sizes.map((size) => (
-                <div key={size.id} className={classes["radio-choise"]}>
-                  <input
-                    type="checkbox"
-                    id={size.id}
-                    name={size.size}
-                    value={size.size}
-                  />
-                  <label for={size.id}>{size.size}</label>
-                </div>
-              ))}
+              {sizes &&
+                sizes.map((size) => (
+                  <div key={size.id} className={classes["radio-choise"]}>
+                    <input
+                      type="checkbox"
+                      id={size.id}
+                      name="size"
+                      value={size.size}
+                    />
+                    <label for={size.id}>{size.size}</label>
+                  </div>
+                ))}
             </div>
           )}
         </div>

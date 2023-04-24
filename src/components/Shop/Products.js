@@ -1,11 +1,10 @@
-import { useSelector } from "react-redux";
 import classes from "./Products.module.css";
 import SingleProduct from "./SingleProduct";
 
-const sizeFilter = (sizes, currSize) => {
+const sizeFilter = (sizes, fiterSizes) => {
   let isAvailable = false;
-  sizes.forEach((s) => {
-    if (s.size === currSize) {
+  sizes.forEach((size) => {
+    if (fiterSizes.includes(size.size)) {
       isAvailable = true;
     }
   });
@@ -15,12 +14,25 @@ const sizeFilter = (sizes, currSize) => {
 
 const Products = (props) => {
   const gender = props.gender;
-  const filter = props.filter;
-  const size = props.size;
+  // const filter = props.filter;
+  // const size = props.size;
   let products = props.products;
+  const categories = props.categories;
+  const sizes = props.sizes;
 
-  if (size && size != "All") {
-    products = products.filter((pr) => true === sizeFilter(pr.size, size));
+  // if (size && size != "All") {
+  //   products = products.filter((pr) => true === sizeFilter(pr.size, size));
+  // }
+
+  if (categories.length > 0) {
+    products = products.filter((product) =>
+      categories.includes(product.category.title)
+    );
+  }
+
+  if (sizes.length > 0) {
+    products = products.filter((product) => sizeFilter(product.size, sizes));
+    console.log(sizes);
   }
 
   if (gender) {
@@ -29,9 +41,9 @@ const Products = (props) => {
     );
   }
 
-  if (filter && filter != "All") {
-    products = products.filter((pr) => pr.category.title === filter);
-  }
+  // if (filter && filter != "All") {
+  //   products = products.filter((pr) => pr.category.title === filter);
+  // }
 
   return (
     <div className={classes.products}>

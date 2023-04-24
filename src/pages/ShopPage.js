@@ -13,4 +13,12 @@ const ShopElement = () => {
   return <Shop />;
 };
 
+// export const ShopAction = async ({ request }) => {
+//   const data = await request.formData();
+//   for (const value of data.values()) {
+//     console.log(value);
+//   }
+//   return null;
+// };
+
 export default ShopElement;
