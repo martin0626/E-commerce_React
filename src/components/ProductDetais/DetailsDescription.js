@@ -56,9 +56,11 @@ const DetailsDescription = (props) => {
         })
       );
     }
-    setTimeout(() => {
+    const timeout = setTimeout(() => {
       dispatch(uiActions.clearUi());
     }, 4000);
+
+    return () => clearTimeout(timeout);
   };
 
   const choseSizeHandler = (el) => {

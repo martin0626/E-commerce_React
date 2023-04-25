@@ -45,7 +45,7 @@
   position: absolute;
   top: 30%;
   cursor: pointer;
-  color: #bbb;
+  color: #a9a9a9;
   padding: 1.2rem;
   transition: all 0.6s;
 }
@@ -58,6 +58,7 @@
 .prev:hover {
   background-color: #3e3e3e4d;
   border-radius: 8px;
+  color: white;
 }
 
 .dots {

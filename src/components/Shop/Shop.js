@@ -14,13 +14,8 @@ const Shop = () => {
   // Filters, Sizes and Gender Filtering
   let { gender } = useParams();
   let [queryParams] = useSearchParams();
-  // let filter = queryParams.get("filter");
-  // let size = queryParams.get("size");
   const sizeFilters = queryParams.getAll("size");
   const categoryFilters = queryParams.getAll("category");
-
-  console.log(sizeFilters);
-  console.log(categoryFilters);
 
   // On Loading Effect
   const isLoading = useSelector((state) => state.ui.isLoading);

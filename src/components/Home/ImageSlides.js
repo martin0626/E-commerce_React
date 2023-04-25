@@ -1,5 +1,6 @@
 import { useState } from "react";
 import classes from "./ImageSlides.module.css";
+import { useEffect } from "react";
 
 let images = [
   {
@@ -34,9 +35,12 @@ const ImageSlides = () => {
     setCurrIndex(index);
   };
 
-  setTimeout(() => {
-    changeIndexHandler(1);
-  }, 7000);
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      changeIndexHandler(1);
+    }, 7000);
+    return () => clearTimeout(timeout);
+  });
 
   return (
     <section className={classes["slide-section"]}>

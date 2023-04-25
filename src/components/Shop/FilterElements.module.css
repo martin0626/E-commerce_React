@@ -45,3 +45,39 @@
   height: 1rem;
   cursor: pointer;
 }
+
+.btn-section {
+  position: relative;
+  padding: 2.2rem;
+}
+
+.btn {
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  background-color: #333;
+  color: #f0f0f0;
+  padding: 0.5rem 1.6rem;
+  border-radius: 8px;
+  transition: all 0.4s;
+}
+
+.btn:hover {
+  background-color: #f0f0f0;
+  color: #333;
+  box-shadow: 0 0 0 1px #333;
+}
+
+.filter-btn {
+  font-size: 1rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: none;
+}
+
+.clear-btn {
+  text-align: center;
+}

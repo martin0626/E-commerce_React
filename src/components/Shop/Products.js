@@ -14,15 +14,9 @@ const sizeFilter = (sizes, fiterSizes) => {
 
 const Products = (props) => {
   const gender = props.gender;
-  // const filter = props.filter;
-  // const size = props.size;
   let products = props.products;
   const categories = props.categories;
   const sizes = props.sizes;
-
-  // if (size && size != "All") {
-  //   products = products.filter((pr) => true === sizeFilter(pr.size, size));
-  // }
 
   if (categories.length > 0) {
     products = products.filter((product) =>
@@ -32,7 +26,6 @@ const Products = (props) => {
 
   if (sizes.length > 0) {
     products = products.filter((product) => sizeFilter(product.size, sizes));
-    console.log(sizes);
   }
 
   if (gender) {
@@ -40,10 +33,6 @@ const Products = (props) => {
       (pr) => pr.gender.toLowerCase() === gender.toLowerCase()
     );
   }
-
-  // if (filter && filter != "All") {
-  //   products = products.filter((pr) => pr.category.title === filter);
-  // }
 
   return (
     <div className={classes.products}>

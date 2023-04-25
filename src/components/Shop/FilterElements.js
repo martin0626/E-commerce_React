@@ -1,15 +1,29 @@
 import { useState } from "react";
 import classes from "./FilterElements.module.css";
-import { Form } from "react-router-dom";
+import { Form, Link, useSearchParams } from "react-router-dom";
 
-// TODO On Reload Checkboxes to keep the state & Add Clear Filters Button
 const FilterElements = (props) => {
+  let [searchParams] = useSearchParams();
+  const [sizeFilters, setSizeFilters] = useState(searchParams.getAll("size"));
+  const [categoryFilters, setCategoryFilters] = useState(
+    searchParams.getAll("category")
+  );
+
   const categories = props.categories;
   const sizes = props.sizes;
+  console.log(categoryFilters);
 
   // Filters Show & Hide Actions
   const [isOpenSizes, setIsOpenSizes] = useState(false);
   const [isOpenCategories, setIsOpenCategories] = useState(false);
+
+  const refreshFiltersHandler = () => {
+    setCategoryFilters([]);
+    setIsOpenCategories(false);
+
+    setSizeFilters([]);
+    setIsOpenSizes(false);
+  };
 
   const openCategoriesHandler = () => {
     setIsOpenCategories(!isOpenCategories);
@@ -19,8 +33,6 @@ const FilterElements = (props) => {
     setIsOpenSizes(!isOpenSizes);
   };
 
-  // TODO Add Styling To Checkbox Input: https://www.w3schools.com/howto/howto_css_custom_checkbox.asp
-  // TODO Handle Form Submit And Finish Styling
   return (
     <div className={classes["filter-elements"]}>
       <Form>
@@ -46,6 +58,7 @@ const FilterElements = (props) => {
                       id={category.id}
                       name="category"
                       value={category.title}
+                      defaultChecked={categoryFilters.includes(category.title)}
                     />
                     <label for={category.id}>{category.title}</label>
                   </div>
@@ -72,6 +85,7 @@ const FilterElements = (props) => {
                       id={size.id}
                       name="size"
                       value={size.size}
+                      defaultChecked={sizeFilters.includes(size.size)}
                     />
                     <label for={size.id}>{size.size}</label>
                   </div>
@@ -79,7 +93,23 @@ const FilterElements = (props) => {
             </div>
           )}
         </div>
-        <button type="submit">Filter</button>
+        <div className={classes["btn-section"]}>
+          <button
+            className={`${classes.btn} ${classes["filter-btn"]}`}
+            type="submit"
+          >
+            Filter
+          </button>
+        </div>
+        <div className={classes["clear-btn"]}>
+          <Link
+            onClick={refreshFiltersHandler}
+            to={"/shop"}
+            className={classes.btn}
+          >
+            Clear Filters
+          </Link>
+        </div>
       </Form>
     </div>
   );
