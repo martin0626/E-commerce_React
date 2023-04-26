@@ -81,3 +81,7 @@
 .clear-btn {
   text-align: center;
 }
+
+.clear-btn a {
+  text-decoration: none;
+}

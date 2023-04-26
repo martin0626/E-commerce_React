@@ -11,7 +11,7 @@ import ReactPaginate from "react-paginate";
 const PRODUCTS_PER_PAGE = 20;
 
 const Shop = () => {
-  // Filters, Sizes and Gender Filtering
+  // Categories, Sizes and Gender Filtering
   let { gender } = useParams();
   let [queryParams] = useSearchParams();
   const sizeFilters = queryParams.getAll("size");
@@ -21,7 +21,15 @@ const Shop = () => {
   const isLoading = useSelector((state) => state.ui.isLoading);
 
   // Fetch All Products
+  const searchFilter = queryParams.getAll("search")[0] || "";
   let products = useSelector((state) => state.products.products);
+
+  if (searchFilter.trim() !== "") {
+    products = products.filter((product) => {
+      const regex = new RegExp(`${searchFilter}`, "gi");
+      return product.title.match(regex);
+    });
+  }
 
   // Pagination From: https://www.npmjs.com/package/react-paginate
   const [productsOffset, setProductsOffset] = useState(0);

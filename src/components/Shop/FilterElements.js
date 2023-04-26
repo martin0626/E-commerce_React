@@ -11,7 +11,6 @@ const FilterElements = (props) => {
 
   const categories = props.categories;
   const sizes = props.sizes;
-  console.log(categoryFilters);
 
   // Filters Show & Hide Actions
   const [isOpenSizes, setIsOpenSizes] = useState(false);

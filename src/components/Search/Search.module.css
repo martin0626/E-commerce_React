@@ -1,0 +1,88 @@
+.search-container {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  font-size: 1.2rem;
+  color: #c9c9c9;
+  transition: all 0.3s;
+}
+
+.search-btn {
+  color: #c9c9c9;
+  transition: all 0.3s;
+}
+
+.active {
+  color: #f0f0f0 !important;
+}
+
+.search-btn:hover {
+  cursor: pointer;
+  color: #f0f0f0;
+}
+
+.search-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-container {
+  position: relative;
+}
+
+.input-container input {
+  width: 22rem;
+  font-size: 1rem;
+  padding: 0.4rem;
+  border-radius: 8px;
+  border: none;
+  transition: all 0.3s;
+}
+
+.input-container input:focus {
+  box-shadow: 0 0 0 3px #9b9b9b;
+  outline: none;
+}
+
+.input-container button {
+  font-size: 1rem;
+  padding: 0;
+  margin: 0;
+  background: none;
+  color: #5a5a5a;
+  border: none;
+  position: absolute;
+  right: 2%;
+  top: 25%;
+}
+
+.input-container button:hover {
+  color: #333;
+  cursor: pointer;
+}
+
+.suggestions {
+  margin-top: 4rem;
+  display: flex;
+  gap: 1.2rem;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  background-color: #333;
+  padding: 1rem;
+  z-index: 1;
+  width: 21rem;
+  border-radius: 8px;
+}
+
+.single-suggestion {
+  padding: 0.6rem;
+  border-radius: 8px;
+  transition: all 0.3s;
+}
+
+.single-suggestion:hover {
+  cursor: pointer;
+  color: #f0f0f0;
+  box-shadow: 0 0 0 1px #c9c9c9;
+}

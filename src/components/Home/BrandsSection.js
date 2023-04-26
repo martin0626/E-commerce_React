@@ -1,6 +1,7 @@
 import classes from "./BrandsSection.module.css";
 
 const Brands = () => {
+  // TODO Make Brands Like This https://www.decathlon.bg/
   return (
     <section className={classes["brands-section"]}>
       <p className={classes.text}>Our Brands:</p>

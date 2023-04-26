@@ -1,6 +1,7 @@
 import classes from "./Navigation.module.css";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
+import SearchElement from "../Search/Search";
 
 const Navigation = () => {
   const cartQuantity = useSelector((state) => state.cart.quantity);
@@ -14,6 +15,7 @@ const Navigation = () => {
       >
         Home
       </NavLink>
+      <SearchElement />
       <div className={classes.dropdown}>
         <NavLink
           to="/shop"
