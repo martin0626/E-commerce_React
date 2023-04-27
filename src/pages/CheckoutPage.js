@@ -1,5 +1,7 @@
-import { redirect } from "react-router";
+import { redirect, useActionData } from "react-router";
 import CheckoutSection from "../components/Checkout/Checkout";
+import { useDispatch } from "react-redux";
+import { cartAction } from "../Store/cart";
 
 const CheckoutPage = () => {
   return <CheckoutSection />;
@@ -10,8 +12,8 @@ export default CheckoutPage;
 export const OrderAction = async ({ request }) => {
   const data = await request.formData();
   let orderData = {
-    first_name: data.get("fname"),
-    last_name: data.get("lname"),
+    first_name: data.get("first_name"),
+    last_name: data.get("last_name"),
     phone: data.get("phone"),
     email: data.get("email"),
     address: data.get("address"),
@@ -27,6 +29,11 @@ export const OrderAction = async ({ request }) => {
     body: JSON.stringify(orderData),
   });
 
-  const response = await sendOrder.json();
-  return redirect("/shop");
+  const response_data = await sendOrder.json();
+  const response_status = await sendOrder.status;
+  if (response_status !== 201) {
+    return response_data;
+  }
+
+  return redirect(`/complete-order/${response_data.id}`);
 };

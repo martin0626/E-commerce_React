@@ -12,7 +12,7 @@
   color: #f0f0f0 !important;
 }
 
-.navigation a:first-of-type {
+.home-part {
   flex-grow: 1;
 }
 

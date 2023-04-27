@@ -1,11 +1,13 @@
 import { Fragment } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import LoadingElement from "../Ui/Loading";
 import Brands from "./BrandsSection";
 import classes from "./Home.module.css";
 import ImageSlides from "./ImageSlides";
 
 const Home = () => {
+  let { status } = useParams();
+  console.log(status);
   const FetchData = async () => {
     let request = await fetch("http://localhost:8000/products/2/");
     console.log(await request.json());

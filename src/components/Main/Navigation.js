@@ -8,13 +8,15 @@ const Navigation = () => {
 
   return (
     <nav className={classes.navigation}>
-      <NavLink
-        to="/"
-        className={({ isActive }) => (isActive ? classes.active : "")}
-        end
-      >
-        Home
-      </NavLink>
+      <div className={classes["home-part"]}>
+        <NavLink
+          to="/"
+          className={({ isActive }) => (isActive ? classes.active : "")}
+          end
+        >
+          Home
+        </NavLink>
+      </div>
       <SearchElement />
       <div className={classes.dropdown}>
         <NavLink

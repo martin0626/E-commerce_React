@@ -1,9 +1,11 @@
-import { Form } from "react-router-dom";
+import { Form, useActionData } from "react-router-dom";
 import classes from "./CheckoutForm.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { cartAction } from "../../Store/cart";
 
 const CheckoutForm = () => {
+  const actionData = useActionData();
+  console.log(actionData);
   let cartItems = useSelector((state) => state.cart.cartItems);
   const dispatch = useDispatch();
   let cartDescription = cartItems.map((el) => {
@@ -11,27 +13,49 @@ const CheckoutForm = () => {
   });
 
   let cartItemsIds = cartItems.map((el) => el.id);
-  console.log(cartItemsIds);
 
   const onSubmitHandler = () => {
-    setTimeout(() => {
-      dispatch(cartAction.ClearCart());
-    }, 1000);
+    // setTimeout(() => {
+    //   dispatch(cartAction.ClearCart());
+    // }, 1000);
   };
+
+  // TODO add Style For Errros
 
   return (
     <div className={classes["form-section"]}>
       <h1>Please fill in your delivery details</h1>
       <div className={classes.form}>
         <Form method="post" action="/checkout">
-          <label for="fname">First name:</label>
-          <input id="fname" name="fname"></input>
-          <label for="lname">Last name:</label>
-          <input id="lname" name="lname"></input>
+          {actionData && (
+            <p className={classes["checkout-errors"]}>
+              {actionData.first_name}
+            </p>
+          )}
+          <label for="first_name">First name:</label>
+          <input id="first_name" name="first_name"></input>
+
+          {actionData && (
+            <p className={classes["checkout-errors"]}>{actionData.last_name}</p>
+          )}
+          <label for="last_name">Last name:</label>
+          <input id="last_name" name="last_name"></input>
+
+          {actionData && (
+            <p className={classes["checkout-errors"]}>{actionData.phone}</p>
+          )}
           <label for="phone">Phone:</label>
           <input id="phone" name="phone"></input>
+
+          {actionData && (
+            <p className={classes["checkout-errors"]}>{actionData.email}</p>
+          )}
           <label for="email">Email:</label>
           <input id="email" name="email"></input>
+
+          {actionData && (
+            <p className={classes["checkout-errors"]}>{actionData.address}</p>
+          )}
           <label for="address">Address:</label>
           <input
             id="address"

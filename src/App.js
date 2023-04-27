@@ -6,6 +6,9 @@ import HomeElement from "./pages/HomePage";
 import ProductDetailsPage from "./pages/ProductDetailsPage";
 import LayoutElement from "./pages/RootLayoutPage";
 import ShopElement from "./pages/ShopPage";
+import CompleteOrderPage, {
+  CompleteOrderLoader,
+} from "./pages/CompleteOrderPage";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +34,11 @@ const router = createBrowserRouter([
         path: "/checkout",
         element: <CheckoutPage />,
         action: OrderAction,
+      },
+      {
+        path: "/complete-order/:order_id",
+        element: <CompleteOrderPage />,
+        loader: CompleteOrderLoader,
       },
     ],
   },
