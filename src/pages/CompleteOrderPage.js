@@ -1,22 +1,17 @@
 import { useDispatch } from "react-redux";
 import { useActionData, useLoaderData } from "react-router";
 import { cartAction } from "../Store/cart";
+import OrderSection from "../components/Order/Order";
 
 const CompleteOrderPage = () => {
   // TODO Add Styling And Component For This Page
   const order = useLoaderData();
   const dispatch = useDispatch();
-
   setTimeout(() => {
     dispatch(cartAction.ClearCart());
   }, 1000);
 
-  return (
-    <div>
-      <h1>{order.first_name}</h1>
-      <h1>{order.last_name}</h1>
-    </div>
-  );
+  return <OrderSection order={order} />;
 };
 
 export default CompleteOrderPage;

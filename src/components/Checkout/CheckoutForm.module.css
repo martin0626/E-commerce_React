@@ -14,10 +14,11 @@
 }
 
 .form form label {
-  margin-top: 1.2rem;
+  margin-top: 0.6rem;
   margin-bottom: 0.8rem;
   font-size: 1.2rem;
   letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
 .form form input {
@@ -28,6 +29,13 @@
   font-weight: bold;
   letter-spacing: 2px;
   transition: all 0.5s;
+  margin-bottom: 0.8rem;
+}
+
+.error-field {
+  box-shadow: 0 0 0 4px #c92a2a;
+  outline: none;
+  border: none !important;
 }
 
 .form form input:focus,
@@ -57,4 +65,11 @@
   color: #333;
   background-color: #f0f0f0;
   box-shadow: 0 0 0 3px #333;
+}
+
+.checkout-errors {
+  padding: 0;
+  margin: 0;
+  font-size: 1rem;
+  color: #c92a2a;
 }

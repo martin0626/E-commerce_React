@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { cartAction } from "../../Store/cart";
 
 const CheckoutForm = () => {
-  const actionData = useActionData();
+  const actionData = useActionData() || {};
   console.log(actionData);
   let cartItems = useSelector((state) => state.cart.cartItems);
   const dispatch = useDispatch();
@@ -33,25 +33,42 @@ const CheckoutForm = () => {
             </p>
           )}
           <label for="first_name">First name:</label>
-          <input id="first_name" name="first_name"></input>
+
+          <input
+            id="first_name"
+            name="first_name"
+            className={actionData.first_name && classes["error-field"]}
+          ></input>
 
           {actionData && (
             <p className={classes["checkout-errors"]}>{actionData.last_name}</p>
           )}
           <label for="last_name">Last name:</label>
-          <input id="last_name" name="last_name"></input>
+          <input
+            id="last_name"
+            name="last_name"
+            className={actionData.last_name && classes["error-field"]}
+          ></input>
 
           {actionData && (
             <p className={classes["checkout-errors"]}>{actionData.phone}</p>
           )}
           <label for="phone">Phone:</label>
-          <input id="phone" name="phone"></input>
+          <input
+            id="phone"
+            name="phone"
+            className={actionData.phone && classes["error-field"]}
+          ></input>
 
           {actionData && (
             <p className={classes["checkout-errors"]}>{actionData.email}</p>
           )}
           <label for="email">Email:</label>
-          <input id="email" name="email"></input>
+          <input
+            id="email"
+            name="email"
+            className={actionData.email && classes["error-field"]}
+          ></input>
 
           {actionData && (
             <p className={classes["checkout-errors"]}>{actionData.address}</p>
@@ -61,6 +78,7 @@ const CheckoutForm = () => {
             id="address"
             placeholder="Town, Street, etc..."
             name="address"
+            className={actionData.address && classes["error-field"]}
           ></input>
           <input
             id="cart"

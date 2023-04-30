@@ -10,11 +10,7 @@ class OrderSerializer(serializers.ModelSerializer):
         model = Order
         fields = '__all__'
 
-    # def create(self, validated_data):
-    #     validated_data['products'] = Products.objects.filter(id=2)
-    #     print(validated_data)
-    #     return validated_data
-
+ 
 
 class SingleOrderSerializer(serializers.ModelSerializer):
     class Meta:

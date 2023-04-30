@@ -26,7 +26,10 @@ const DetailGallery = (props) => {
         </div>
       )}
       <div className={classes.image}>
-        <img src={product.image} />
+        <img
+          onClick={() => openImageHandler(product.image)}
+          src={product.image}
+        />
       </div>
       <div className={classes.gallery}>
         {gallery &&

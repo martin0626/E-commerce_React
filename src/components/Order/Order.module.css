@@ -1,0 +1,64 @@
+.order-page {
+  background-color: #333;
+  height: 100vh;
+  position: relative;
+}
+
+.order-section {
+  height: 22rem;
+  width: 58rem;
+  background-color: #f0f0f0;
+  left: 50%;
+  top: 20%;
+  transform: translateX(-50%);
+  border-radius: 8px;
+  position: absolute;
+  animation: order 1s ease-in forwards;
+}
+
+@keyframes order {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.info {
+  text-align: center;
+  margin-top: 5rem;
+  padding-inline: 1.2rem;
+}
+
+.about {
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.warn {
+  font-size: 0.8rem;
+  color: #f03e3e;
+  margin-bottom: 4.2rem;
+}
+
+.shop-btn {
+  padding: 1.2rem 2rem;
+  background-color: #333;
+  color: #f0f0f0;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: all 0.3s;
+  font-weight: 500;
+}
+
+.shop-btn:hover {
+  background-color: #f0f0f0;
+  box-shadow: 0 0 0 1px #333;
+  color: #333;
+}

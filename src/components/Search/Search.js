@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import classes from "./Search.module.css";
 import { useSelector } from "react-redux";
 
@@ -7,6 +7,7 @@ const SearchElement = () => {
   const [isOpenInput, setIsOpenInput] = useState(false);
   const [suggestions, setSuggestions] = useState([]);
   const [currText, setCurrText] = useState("");
+  const [animation, setAnimation] = useState(false);
 
   const typeHandler = (e) => {
     let text = e.target.value;
@@ -30,6 +31,8 @@ const SearchElement = () => {
   const chooseSuggestionHandler = (suggestion) => {
     setCurrText(suggestion);
   };
+
+  console.log(animation);
 
   // Todo Add Effects, On Select And OnBlur Actions :https://www.youtube.com/watch?v=Q2aky3eeO40
   return (
