@@ -1,6 +1,7 @@
 import { useState } from "react";
 import classes from "./ImageSlides.module.css";
 import { useEffect } from "react";
+import { CSSTransition } from "react-transition-group";
 
 let images = [
   {
@@ -19,10 +20,11 @@ let images = [
 
 const ImageSlides = () => {
   let [currIndex, setCurrIndex] = useState(0);
+  let [changed, setChanged] = useState(false);
 
   const changeIndexHandler = (step) => {
     let index = currIndex + step;
-
+    setChanged(true);
     if (index === images.length) {
       setCurrIndex(0);
       return;
@@ -45,9 +47,22 @@ const ImageSlides = () => {
   return (
     <section className={classes["slide-section"]}>
       <div className={classes["slide-container"]}>
-        <div className={`${classes.fade} ${classes.slide}`}>
-          <img className={classes["slide-image"]} src={images[currIndex].img} />
-        </div>
+        {/* TODO: Finish CSSTransition */}
+        <CSSTransition
+          mountOnEnter
+          unmountOnExit
+          in={setChanged}
+          timeout="400"
+          classNames={{ enter: "fade" }}
+        >
+          <div className={`${classes.slide}`}>
+            <img
+              className={classes["slide-image"]}
+              src={images[currIndex].img}
+            />
+          </div>
+        </CSSTransition>
+
         <a
           className={classes.next}
           onClick={() => {

@@ -7,7 +7,6 @@ const SearchElement = () => {
   const [isOpenInput, setIsOpenInput] = useState(false);
   const [suggestions, setSuggestions] = useState([]);
   const [currText, setCurrText] = useState("");
-  const [animation, setAnimation] = useState(false);
 
   const typeHandler = (e) => {
     let text = e.target.value;
@@ -32,28 +31,30 @@ const SearchElement = () => {
     setCurrText(suggestion);
   };
 
-  console.log(animation);
-
   // Todo Add Effects, On Select And OnBlur Actions :https://www.youtube.com/watch?v=Q2aky3eeO40
   return (
     <div className={`${classes["search-container"]}`}>
       <form className={classes["search-form"]} action="/shop">
-        {isOpenInput && (
-          <div className={classes["input-container"]}>
-            <input
-              placeholder="Product..."
-              onChange={typeHandler}
-              onBlur={() => {
-                setTimeout(() => {
-                  onBlurHandler();
-                }, 100);
-              }}
-              name="search"
-              value={currText}
-            ></input>
-            <button type="submit" className="fas fa-search"></button>
-          </div>
-        )}
+        <div
+          className={
+            isOpenInput
+              ? `${classes["input-container"]} ${classes["show-animation"]}`
+              : `${classes["input-container"]} ${classes["close-animation"]}`
+          }
+        >
+          <input
+            placeholder="Product..."
+            onChange={typeHandler}
+            onBlur={() => {
+              setTimeout(() => {
+                onBlurHandler();
+              }, 100);
+            }}
+            name="search"
+            value={currText}
+          ></input>
+          <button type="submit" className="fas fa-search"></button>
+        </div>
         {suggestions.length > 0 && (
           <div className={classes.suggestions}>
             {suggestions.map((pr) => (
