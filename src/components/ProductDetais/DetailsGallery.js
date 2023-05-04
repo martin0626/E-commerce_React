@@ -34,7 +34,11 @@ const DetailGallery = (props) => {
       <div className={classes.gallery}>
         {gallery &&
           gallery.map((el) => (
-            <img onClick={() => openImageHandler(el.image)} src={el.image} />
+            <img
+              key={el.id}
+              onClick={() => openImageHandler(el.image)}
+              src={el.image}
+            />
           ))}
       </div>
     </div>

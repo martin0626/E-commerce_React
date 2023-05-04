@@ -85,6 +85,7 @@ const DetailsDescription = (props) => {
           {product.size ? (
             product.size.map((s) => (
               <p
+                key={s.id}
                 className={s.size === chosenSize && classes.active}
                 onClick={choseSizeHandler}
               >

@@ -25,7 +25,7 @@ const Cart = () => {
             <h1 className={classes["prm-header"]}>Shopping Bag</h1>
             <div className={classes["cart-products"]}>
               {cartItems.map((product) => (
-                <CartProduct product={product} />
+                <CartProduct key={product.id} product={product} />
               ))}
             </div>
           </div>

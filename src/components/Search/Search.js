@@ -59,6 +59,7 @@ const SearchElement = () => {
           <div className={classes.suggestions}>
             {suggestions.map((pr) => (
               <div
+                key={pr.id}
                 onClick={() => {
                   chooseSuggestionHandler(pr.title);
                 }}

@@ -5,7 +5,7 @@ const SingleProduct = (props) => {
   const product = props.product;
 
   return (
-    <section className={classes.product}>
+    <section key={product.id} className={classes.product}>
       <Link
         to={`/shop/details/${product.slug}`}
         className={classes["product-element"]}

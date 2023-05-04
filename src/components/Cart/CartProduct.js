@@ -15,8 +15,9 @@ const CartProduct = (props) => {
   const addHandler = () => {
     dispatch(cartAction.AddItemToCart({ product, currQuantity: 1 }));
   };
+
   return (
-    <div className={classes.product}>
+    <div key={product.id} className={classes.product}>
       <div className={classes.image}>
         <img src={product.image} />
       </div>

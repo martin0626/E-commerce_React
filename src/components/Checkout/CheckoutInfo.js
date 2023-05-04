@@ -15,7 +15,7 @@ const CheckoutInfo = () => {
 
         {cartItems.map((product) => {
           return (
-            <div className={classes.content}>
+            <div key={product.id} className={classes.content}>
               <p className={classes.txt}>
                 {product.title} X {product.quantity}
               </p>
