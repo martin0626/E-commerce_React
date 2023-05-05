@@ -4,20 +4,12 @@ import classes from "./Details.module.css";
 import DetailsDescription from "./DetailsDescription";
 import DetailGallery from "./DetailsGallery";
 import LoadingElement from "../Ui/Loading";
+import useFetch from "../../hooks/use-fetch";
 
 const DetailsElement = () => {
   const { productId } = useParams();
-  const [product, setProduct] = useState(null);
 
-  useEffect(() => {
-    const fetchProduct = async () => {
-      let request = await fetch(`http://localhost:8000/products/${productId}/`);
-      const response = await request.json();
-      setProduct(response);
-    };
-
-    fetchProduct();
-  }, []);
+  const [product] = useFetch(`http://localhost:8000/products/${productId}/`);
 
   return (
     <Fragment>
