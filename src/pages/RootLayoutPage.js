@@ -14,11 +14,11 @@ const LayoutElement = () => {
   }, []);
 
   return (
-    <Fragment>
+    <section className="scroll-container">
       <Navigation />
       <Outlet />
       <FooterElement />
-    </Fragment>
+    </section>
   );
 };
 

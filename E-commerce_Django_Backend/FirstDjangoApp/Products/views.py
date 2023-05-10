@@ -9,13 +9,14 @@ from Products.models import Products, Category, Size, ProductGallery
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
-        fields = ['id', 'title']
+        fields = ['id', 'title', 'image']
 
 
 class ForProductCategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
         fields = ['title']
+
 
 
 class ForProductGallerySerializer(serializers.ModelSerializer):

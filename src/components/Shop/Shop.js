@@ -40,12 +40,13 @@ const Shop = () => {
   const handlePageClick = (event) => {
     const newOffset = (event.selected * PRODUCTS_PER_PAGE) % products.length;
     setProductsOffset(newOffset);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   // TODO Style Paginator
   return (
     <Fragment>
-      <section className={classes["shop-section"]}>
+      <section className={`${classes["shop-section"]} scroll-container`}>
         <Filter />
 
         {isLoading ? (

@@ -33,3 +33,7 @@ code {
   color: #333;
   margin-bottom: 3.6rem;
 }
+
+.scroll-container {
+  scroll-behavior: smooth;
+}

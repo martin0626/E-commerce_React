@@ -4,14 +4,9 @@ import LoadingElement from "../Ui/Loading";
 import Brands from "./BrandsSection";
 import classes from "./Home.module.css";
 import ImageSlides from "./ImageSlides";
+import CategoriesElement from "./Categories";
 
 const Home = () => {
-  let { status } = useParams();
-  console.log(status);
-  const FetchData = async () => {
-    let request = await fetch("http://localhost:8000/products/2/");
-    console.log(await request.json());
-  };
   return (
     <div className={classes.fade}>
       <section className={classes.home}>
@@ -28,9 +23,9 @@ const Home = () => {
           </Link>
         </div>
       </section>
-
-      <Brands></Brands>
+      <CategoriesElement />
       <ImageSlides></ImageSlides>
+      <Brands></Brands>
     </div>
   );
 };

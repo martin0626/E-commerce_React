@@ -6,12 +6,14 @@
 
 .paginator {
   display: flex;
+  align-items: center;
   gap: 0.4rem;
   text-decoration: none;
   list-style: none;
   width: 40rem;
   margin: 0 auto;
   margin-top: 12rem;
+  margin-bottom: 12rem;
   justify-content: center;
 }
 
