@@ -1,7 +1,7 @@
 import { useState } from "react";
 import classes from "./ImageSlides.module.css";
 import { useEffect } from "react";
-import { CSSTransition } from "react-transition-group";
+// import { CSSTransition } from "react-transition-group";
 
 let images = [
   {
@@ -48,20 +48,17 @@ const ImageSlides = () => {
     <section className={classes["slide-section"]}>
       <div className={classes["slide-container"]}>
         {/* TODO: Finish CSSTransition */}
-        <CSSTransition
+        {/* <CSSTransition
           mountOnEnter
           unmountOnExit
           in={setChanged}
           timeout="400"
           classNames={{ enter: "fade" }}
-        >
-          <div className={`${classes.slide}`}>
-            <img
-              className={classes["slide-image"]}
-              src={images[currIndex].img}
-            />
-          </div>
-        </CSSTransition>
+        > */}
+        <div className={`${classes.slide}`}>
+          <img className={classes["slide-image"]} src={images[currIndex].img} />
+        </div>
+        {/* </CSSTransition> */}
 
         <a
           className={classes.next}
