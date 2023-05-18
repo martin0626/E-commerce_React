@@ -7,6 +7,10 @@
   margin-top: 3.2rem;
 }
 
+.home-categories .slick-list {
+  display: flex;
+}
+
 .categories-section {
   margin: 12rem 0 12rem 0;
   text-align: center;
@@ -16,23 +20,6 @@
   font-size: 1.8rem;
   font-weight: bold;
   letter-spacing: 2px;
-}
-
-.ctg-img {
-  width: 10rem;
-}
-
-.category-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  cursor: pointer;
-  transition: all 0.3s;
-  position: relative;
-}
-
-.category-container:hover {
-  transform: translateY(-10%);
 }
 
 .next,

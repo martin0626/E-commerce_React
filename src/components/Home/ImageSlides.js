@@ -47,19 +47,9 @@ const ImageSlides = () => {
   return (
     <section className={classes["slide-section"]}>
       <div className={classes["slide-container"]}>
-        {/* TODO: Finish CSSTransition */}
-        {/* <CSSTransition
-          mountOnEnter
-          unmountOnExit
-          in={setChanged}
-          timeout="400"
-          classNames={{ enter: "fade" }}
-        > */}
         <div className={`${classes.slide}`}>
           <img className={classes["slide-image"]} src={images[currIndex].img} />
         </div>
-        {/* </CSSTransition> */}
-
         <a
           className={classes.next}
           onClick={() => {

@@ -1,0 +1,16 @@
+.ctg-img {
+  width: 10rem;
+}
+
+.category-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+}
+
+.category-container:hover {
+  transform: translateY(-10%);
+}
