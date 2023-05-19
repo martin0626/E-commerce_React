@@ -7,6 +7,7 @@ import classes from "./Shop.module.css";
 import LoadingElement from "../Ui/Loading";
 import { Fragment, useState } from "react";
 import ReactPaginate from "react-paginate";
+import useFilter from "../../hooks/use-filter";
 
 const PRODUCTS_PER_PAGE = 20;
 
@@ -22,8 +23,9 @@ const Shop = () => {
 
   // Fetch All Products
   const searchFilter = queryParams.getAll("search")[0] || "";
-  let products = useSelector((state) => state.products.products);
 
+  // let products = useSelector((state) => state.products.products);
+  let products = useFilter({ gender, categoryFilters, sizeFilters });
   if (searchFilter.trim() !== "") {
     products = products.filter((product) => {
       const regex = new RegExp(`${searchFilter}`, "gi");

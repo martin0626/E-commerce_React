@@ -44,5 +44,20 @@
 .prev:hover,
 .next:hover {
   cursor: pointer;
-  color: #727272;
+  color: #808080;
+}
+
+.container {
+  margin-inline: 12rem;
+  padding: 3rem;
+  margin-bottom: 12rem;
+}
+
+.container h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.6rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #33333396;
 }

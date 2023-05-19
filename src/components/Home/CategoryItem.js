@@ -10,7 +10,7 @@ const CategoryItem = (props) => {
       <Link to={`shop?category=${category.title}`}>
         <img className={classes["ctg-img"]} src={category.image} />
       </Link>
-      <h1>{category.title}</h1>
+      <h2>{category.title}</h2>
     </div>
   );
 };

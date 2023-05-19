@@ -29,7 +29,7 @@ const uiSlice = createSlice({
     },
     clearUi(state, action) {
       state.isLoading = false;
-      state.message = "";
+      state.message = null;
       state.errors = false;
       state.newItem = null;
     },
