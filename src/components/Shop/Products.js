@@ -1,17 +1,5 @@
-import useFilter from "../../hooks/use-filter";
 import classes from "./Products.module.css";
 import SingleProduct from "./SingleProduct";
-
-const sizeFilter = (sizes, fiterSizes) => {
-  let isAvailable = false;
-  sizes.forEach((size) => {
-    if (fiterSizes.includes(size.size)) {
-      isAvailable = true;
-    }
-  });
-
-  return isAvailable;
-};
 
 const Products = (props) => {
   const products = props.products;

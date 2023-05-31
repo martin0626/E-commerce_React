@@ -20,7 +20,7 @@ const DetailGallery = (props) => {
       {openedImage && (
         <div className={classes["image-modal"]}>
           <a onClick={closeImageHandler} className={classes.close}>
-            <i className="fas fa-times" aria-hidden="true"></i>
+            <i className="fa fa-times" aria-hidden="true"></i>
           </a>
           <img src={openedImage}></img>
         </div>

@@ -42,9 +42,9 @@ const FilterElements = (props) => {
           >
             <p>Categories</p>
             {isOpenCategories ? (
-              <i class="fas fa-angle-up"></i>
+              <i class="fa fa-angle-up"></i>
             ) : (
-              <i class="fas fa-angle-down"></i>
+              <i class="fa fa-angle-down"></i>
             )}
           </div>
           {isOpenCategories && (
@@ -69,9 +69,9 @@ const FilterElements = (props) => {
           <div onClick={openSizesHandler} className={classes["ctg-button"]}>
             <p>Sizes</p>
             {isOpenSizes ? (
-              <i class="fas fa-angle-up"></i>
+              <i class="fa fa-angle-up"></i>
             ) : (
-              <i class="fas fa-angle-down"></i>
+              <i class="fa fa-angle-down"></i>
             )}
           </div>
           {isOpenSizes && (

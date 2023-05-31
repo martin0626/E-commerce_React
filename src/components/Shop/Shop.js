@@ -26,6 +26,7 @@ const Shop = () => {
 
   // let products = useSelector((state) => state.products.products);
   let products = useFilter({ gender, categoryFilters, sizeFilters });
+
   if (searchFilter.trim() !== "") {
     products = products.filter((product) => {
       const regex = new RegExp(`${searchFilter}`, "gi");

@@ -6,14 +6,14 @@ const FooterElement = () => {
     <div className={classes.footer}>
       <div className={classes.about}>
         <div className={`${classes.social}`}>
-          <i className="fab fa-facebook-square"></i>
-          <i className="fab fa-github-square"></i>
-          <i className="fab fa-instagram-square"></i>
+          <i className="fa fa-facebook-square"></i>
+          <i className="fa fa-github-square"></i>
+          <i className="fa fa-instagram-square"></i>
         </div>
         <div className={`${classes.navigation} ${classes["flex-column"]}`}>
-          <Link>Home</Link>
-          <Link>Shop</Link>
-          <Link>Cart</Link>
+          <Link to={"/"}>Home</Link>
+          <Link to={"/shop"}>Shop</Link>
+          <Link to={"/cart"}>Cart</Link>
         </div>
         <div className={classes.contact}>
           <Form>

@@ -53,7 +53,7 @@ const SearchElement = () => {
             name="search"
             value={currText}
           ></input>
-          <button type="submit" className="fas fa-search"></button>
+          <button type="submit" className="fa fa-search"></button>
         </div>
         {suggestions.length > 0 && (
           <div className={classes.suggestions}>
@@ -77,7 +77,7 @@ const SearchElement = () => {
           onClick={() => {
             setIsOpenInput(!isOpenInput);
           }}
-          class={isOpenInput ? "fas fa-times-circle" : "fas fa-search"}
+          class={isOpenInput ? "fa fa-times-circle" : "fa fa-search"}
         ></i>
       </div>
     </div>
